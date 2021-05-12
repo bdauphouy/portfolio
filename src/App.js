@@ -5,7 +5,7 @@ const App = () => {
       <p>I'm Baptiste Dauphouy, a french frontend developer</p>
       <ul>
         <li>
-          <a href="/cv">CV</a>
+          <a href="/cv">My CV</a>
         </li>
         <li>
           <a href="/projet-etudes">Studied project</a>
