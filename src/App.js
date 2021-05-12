@@ -15,7 +15,9 @@ const App = () => {
         </Subtitle>
         <List>
           <Link>
-            <a href="/cv" data-text="CV">
+            <a
+              href="https://drive.google.com/file/d/1KSJg6BQp3kNnbMuF3BRU_RwgbKOf-T4Z/view"
+              data-text="CV">
               CV
             </a>
           </Link>
