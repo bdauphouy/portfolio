@@ -27,11 +27,6 @@ const App = () => {
             </a>
           </Link>
           <Link>
-            <a href="/cours" data-text="Cours">
-              Cours
-            </a>
-          </Link>
-          <Link>
             <a href="https://twitter.com/baptistedph" data-text="Twitter">
               Twitter
             </a>
