@@ -1,6 +1,8 @@
 import Navbar from './partials/Navbar'
 import Homepage from './sections/Homepage'
 import About from './sections/About'
+import Use from './sections/Use'
+import Contact from './sections/Contact'
 
 const App = () => {
   const styles = {
@@ -21,6 +23,7 @@ const App = () => {
         g2: '#d9f9ef',
         g3: '#b2f5df',
         g4: '#72edc4',
+        g5: '#00df94',
       },
       grays: {
         g1: '#94A3B8',
@@ -40,6 +43,8 @@ const App = () => {
       <Navbar styles={styles} />
       <Homepage styles={styles} />
       <About styles={styles} />
+      <Use styles={styles} />
+      <Contact styles={styles} />
     </>
   )
 }

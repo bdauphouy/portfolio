@@ -10,7 +10,6 @@ const Homepage = ({ styles }) => {
         <Title size={styles.titles.t2} color={styles.palette.blacks.b1}>
           Hello, I am
           <Stroked
-            stroked="true"
             size={styles.titles.t2}
             color={styles.palette.blacks.b1}
             style={{ marginLeft: '20px' }}>

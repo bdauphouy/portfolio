@@ -2,7 +2,8 @@ import styled from 'styled-components'
 
 const Title = styled.h2`
   font-size: ${props => props.size};
-  color: ${props => props.color};
+  -webkit-text-stroke: ${props => props.stroked && `1px ${props.color}`};
+  color: ${props => (props.stroked ? 'transparent' : props.color)};
   line-height: ${props => props.size};
 `
 
@@ -38,7 +39,7 @@ const Link = styled.a`
 `
 
 const Stroked = styled.span`
-  -webkit-text-stroke: ${props => `2px ${props.color}`};
+  -webkit-text-stroke: ${props => `1px ${props.color}`};
   font-size: ${props => props.size};
   color: transparent;
 `
@@ -46,12 +47,12 @@ const Stroked = styled.span`
 const Container = styled.section`
   padding: 100px ${props => props.padding};
   display: flex;
-  min-height: 100vh;
 `
 
 const Column = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
 `
 
 const Row = styled.div`
