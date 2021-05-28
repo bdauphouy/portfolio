@@ -6,11 +6,31 @@ import {
   Link,
   Title,
 } from '../components/Components'
+import { useState, useEffect } from 'react'
 
-const About = ({ styles }) => {
+const About = ({ styles, mobile }) => {
+  const [smallDevice, setSmallDevice] = useState(false)
+
+  const isSmallDevice = () => {
+    return window.innerWidth <= 550
+  }
+
+  useEffect(() => {
+    isSmallDevice() ? setSmallDevice(true) : setSmallDevice(false)
+  }, [])
+
+  window.addEventListener('resize', () => {
+    isSmallDevice() ? setSmallDevice(true) : setSmallDevice(false)
+  })
+
   return (
     <>
-      <Container padding={styles.paddings.p1} style={{ gridGap: '150px' }}>
+      <Container
+        padding={styles.paddings.p1}
+        style={{
+          gridGap: !mobile ? '150px' : '80px',
+          flexDirection: mobile && 'column',
+        }}>
         <Column style={{ flex: 1.5 }}>
           <Paragraph
             color={styles.palette.blacks.b1}
@@ -42,20 +62,21 @@ const About = ({ styles }) => {
             Download my CV
           </Link>
         </Column>
-        <Column style={{ flex: 1 }}>
+        <Column style={{ flex: 1, minWidth: !mobile && '350px' }}>
           <Title
             size={styles.titles.t3}
             stroked
             color={styles.palette.blacks.b1}>
             Curriculum
           </Title>
-          <Step line={styles.palette.grays.g1}>
+          <Step>
             <Paragraph
-              color={styles.palette.blacks.b1}
-              size={styles.paragraphs.p1}>
+              color={styles.palette.grays.g1}
+              size={styles.paragraphs.p1}
+              style={{ whiteSpace: 'nowrap' }}>
               2021-2024
             </Paragraph>
-            <Column style={{ marginLeft: '80px' }}>
+            <Column style={{ marginLeft: smallDevice ? '30px' : '80px' }}>
               <Paragraph
                 color={styles.palette.blacks.b1}
                 size={styles.paragraphs.p1}>
@@ -68,13 +89,14 @@ const About = ({ styles }) => {
               </Paragraph>
             </Column>
           </Step>
-          <Step line={styles.palette.grays.g1}>
+          <Step>
             <Paragraph
-              color={styles.palette.blacks.b1}
-              size={styles.paragraphs.p1}>
+              color={styles.palette.grays.g1}
+              size={styles.paragraphs.p1}
+              style={{ whiteSpace: 'nowrap' }}>
               2018-2021
             </Paragraph>
-            <Column style={{ marginLeft: '80px' }}>
+            <Column style={{ marginLeft: smallDevice ? '30px' : '80px' }}>
               <Paragraph
                 color={styles.palette.blacks.b1}
                 size={styles.paragraphs.p1}>
@@ -87,13 +109,14 @@ const About = ({ styles }) => {
               </Paragraph>
             </Column>
           </Step>
-          <Step line={styles.palette.grays.g1}>
+          <Step>
             <Paragraph
-              color={styles.palette.blacks.b1}
-              size={styles.paragraphs.p1}>
+              color={styles.palette.grays.g1}
+              size={styles.paragraphs.p1}
+              style={{ whiteSpace: 'nowrap' }}>
               2014-2018
             </Paragraph>
-            <Column style={{ marginLeft: '80px' }}>
+            <Column style={{ marginLeft: smallDevice ? '30px' : '80px' }}>
               <Paragraph
                 color={styles.palette.blacks.b1}
                 size={styles.paragraphs.p1}>
@@ -116,17 +139,6 @@ const Step = styled.div`
   display: flex;
   margin-top: 30px;
   width: 100%;
-  position: relative;
-
-  &::before {
-    content: '';
-    position: absolute;
-    width: 3px;
-    height: 40px;
-    background: ${props => props.line};
-    left: 45px;
-    top: 65%;
-  }
 `
 
 export default About

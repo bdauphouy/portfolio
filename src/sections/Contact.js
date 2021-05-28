@@ -7,16 +7,21 @@ import {
   Link,
 } from '../components/Components'
 
-const Contact = ({ styles }) => {
+const Contact = ({ styles, mobile }) => {
   return (
     <>
-      <Container padding={styles.paddings.p1} style={{ gridGap: '150px' }}>
+      <Container
+        padding={styles.paddings.p1}
+        style={{
+          gridGap: !mobile ? '150px' : '80px',
+          flexDirection: mobile && 'column',
+        }}>
         <Column style={{ flex: 1 }}>
           <Paragraph
             color={styles.palette.blacks.b1}
             size={styles.paragraphs.p1}>
-            My name is Baptiste Dauphouy, I am french developer, 17 years old,
-            and I live near Rennes in France.
+            For all inqueries about me, you can contact me by email, phone
+            number or with social networks.
           </Paragraph>
         </Column>
         <Column style={{ flex: 3 }}>
@@ -26,8 +31,13 @@ const Contact = ({ styles }) => {
             color={styles.palette.blacks.b1}>
             Contact me
           </Title>
-          <Way border={styles.palette.grays.g1}>
-            <Title size={styles.titles.t3} color={styles.palette.blacks.b1}>
+          <Way border={styles.palette.grays.g2}>
+            <Title
+              size={styles.titles.t3}
+              color={styles.palette.blacks.b1}
+              style={{
+                wordBreak: 'break-all',
+              }}>
               bdauphouy[at]gmail.com
             </Title>
             <Paragraph
@@ -38,7 +48,7 @@ const Contact = ({ styles }) => {
               work.
             </Paragraph>
           </Way>
-          <Way border={styles.palette.grays.g1}>
+          <Way border={styles.palette.grays.g2}>
             <Title size={styles.titles.t3} color={styles.palette.blacks.b1}>
               +33621629748
             </Title>
@@ -54,7 +64,7 @@ const Contact = ({ styles }) => {
               <Link
                 href="/"
                 color={styles.palette.greens.g5}
-                size={styles.paragraphs.p1}>
+                size={styles.links.l1}>
                 twitter
               </Link>
             </li>
@@ -62,7 +72,7 @@ const Contact = ({ styles }) => {
               <Link
                 href="/"
                 color={styles.palette.greens.g5}
-                size={styles.paragraphs.p1}>
+                size={styles.links.l1}>
                 discord
               </Link>
             </li>
@@ -70,7 +80,7 @@ const Contact = ({ styles }) => {
               <Link
                 href="/"
                 color={styles.palette.greens.g5}
-                size={styles.paragraphs.p1}>
+                size={styles.links.l1}>
                 github
               </Link>
             </li>
@@ -78,7 +88,10 @@ const Contact = ({ styles }) => {
           <Paragraph
             color={styles.palette.grays.g1}
             size={styles.paragraphs.p1}
-            style={{ marginTop: '80px' }}>
+            style={{
+              marginTop: '80px',
+              alignSelf: mobile && 'center',
+            }}>
             © 2021 - Baptiste Dauphouy
           </Paragraph>
         </Column>
@@ -102,10 +115,4 @@ const List = styled.ul`
   width: 100%;
 `
 
-const Item = styled.a`
-  font-size: ${props => props.size};
-  color: ${props => props.color};
-  font-weight: 500;
-  text-decoration: none;
-`
 export default Contact

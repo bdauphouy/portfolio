@@ -39,8 +39,10 @@ const List = styled.ul`
   display: flex;
   margin-top: 80px;
   list-style: none;
+  flex-wrap: wrap;
   justify-content: space-between;
   width: 100%;
+  grid-gap: 50px;
 `
 
 const Item = styled.li`

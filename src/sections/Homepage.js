@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Title, Container, Stroked } from '../components/Components'
 
-const Homepage = ({ styles }) => {
+const Homepage = ({ styles, mobile }) => {
   return (
     <>
       <Container
@@ -12,7 +12,7 @@ const Homepage = ({ styles }) => {
           <Stroked
             size={styles.titles.t2}
             color={styles.palette.blacks.b1}
-            style={{ marginLeft: '20px' }}>
+            style={{ marginLeft: '15px' }}>
             Baptiste Dauphouy
           </Stroked>
           , a frontend developer.
@@ -29,13 +29,12 @@ const Homepage = ({ styles }) => {
 }
 
 const Projects = styled.div`
-  display: flex;
-  justify-content: space-between;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-gap: 20px;
 `
 
 const Project = styled.div`
-  flex: 1;
   height: 250px;
   background: ${props => props.background};
 `
