@@ -18,7 +18,11 @@ const Homepage = ({ styles, mobile }) => {
           , a frontend developer.
         </Title>
       </Container>
-      <Projects>
+      <Projects
+        style={{
+          gridTemplateColumns:
+            mobile && 'repeat(auto-fill, minmax(300px, 1fr))',
+        }}>
         <Project background={styles.palette.greens.g1} />
         <Project background={styles.palette.greens.g2} />
         <Project background={styles.palette.greens.g3} />
@@ -30,7 +34,7 @@ const Homepage = ({ styles, mobile }) => {
 
 const Projects = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   grid-gap: 20px;
 `
 

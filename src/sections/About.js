@@ -55,7 +55,8 @@ const About = ({ styles, mobile }) => {
             contact me.
           </Paragraph>
           <Link
-            href="/"
+            href="/cv.pdf"
+            download
             size={styles.links.l1}
             color={styles.palette.greens.g5}
             style={{ marginTop: '50px' }}>

@@ -7,7 +7,7 @@ import {
   Link,
 } from '../components/Components'
 
-const Contact = ({ styles, mobile }) => {
+const Contact = ({ styles, mobile, externalLinks }) => {
   return (
     <>
       <Container
@@ -62,7 +62,7 @@ const Contact = ({ styles, mobile }) => {
           <List>
             <li>
               <Link
-                href="/"
+                href={externalLinks.twitter}
                 color={styles.palette.greens.g5}
                 size={styles.links.l1}>
                 twitter
@@ -70,7 +70,7 @@ const Contact = ({ styles, mobile }) => {
             </li>
             <li>
               <Link
-                href="/"
+                href={externalLinks.discord}
                 color={styles.palette.greens.g5}
                 size={styles.links.l1}>
                 discord
@@ -78,7 +78,7 @@ const Contact = ({ styles, mobile }) => {
             </li>
             <li>
               <Link
-                href="/"
+                href={externalLinks.github}
                 color={styles.palette.greens.g5}
                 size={styles.links.l1}>
                 github

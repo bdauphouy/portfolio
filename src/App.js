@@ -20,6 +20,12 @@ const App = () => {
     isMobile() ? setMobile(true) : setMobile(false)
   })
 
+  const externalLinks = {
+    twitter: 'https://twitter.com/baptistedph',
+    discord: 'https://discordapp.com/users/471654834328698880',
+    github: 'https://github.com/baptistedph',
+  }
+
   const styles = {
     titles: {
       t1: mobile ? '80px' : '130px',
@@ -60,7 +66,7 @@ const App = () => {
       <Homepage styles={styles} mobile={mobile} />
       <About styles={styles} mobile={mobile} />
       <Use styles={styles} mobile={mobile} />
-      <Contact styles={styles} mobile={mobile} />
+      <Contact styles={styles} mobile={mobile} externalLinks={externalLinks} />
     </>
   )
 }
