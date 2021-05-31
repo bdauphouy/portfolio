@@ -37,7 +37,7 @@ const Use = ({ styles }) => {
 
 const List = styled.ul`
   display: flex;
-  margin-top: 80px;
+  margin-top: 50px;
   list-style: none;
   flex-wrap: wrap;
   justify-content: space-between;

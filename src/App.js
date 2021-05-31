@@ -45,6 +45,7 @@ const App = () => {
     },
     links: {
       l1: '20px',
+      l2: mobile ? '12px' : '15px',
     },
     palette: {
       greens: {
@@ -70,7 +71,7 @@ const App = () => {
 
   return (
     <>
-      <DownloadCV />
+      <DownloadCV styles={styles} mobile={mobile} />
       <Navbar styles={styles} mobile={mobile} menu={menu} setMenu={setMenu} />
       {menu && (
         <Menu styles={styles} mobile={mobile} menu={menu} setMenu={setMenu} />

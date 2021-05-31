@@ -70,7 +70,7 @@ const About = ({ styles, mobile }) => {
             color={styles.palette.blacks.b1}>
             Curriculum
           </Title>
-          <Step>
+          <Step style={{ marginTop: '50px' }}>
             <Paragraph
               color={styles.palette.grays.g1}
               size={styles.paragraphs.p1}

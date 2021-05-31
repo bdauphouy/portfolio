@@ -1,51 +1,83 @@
 import styled from 'styled-components'
-import { useRef, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
-const DownloadCV = () => {
-  const circle = useRef()
+const DownloadCV = ({ styles, mobile }) => {
+  let [diameter, setDiameter] = useState(mobile ? 34 : 64)
 
   useEffect(() => {
-    console.log(circle.current)
-    window.addEventListener('mousemove', e => {
-      circle.current.style.left = e.clientX + 'px'
-      circle.current.style.top = e.clientY + 'px'
-    })
-  }, [])
+    setDiameter(mobile ? 34 : 64)
+  }, [mobile])
 
-  const d = 68.5
+  const handleOnMouseOver = () => {
+    const interval = setInterval(() => {
+      if (diameter >= 43) {
+        setDiameter(diameter--)
+      } else clearInterval(interval)
+    }, 5)
+  }
+
+  const handleOnMouseLeave = () => {
+    const interval = setInterval(() => {
+      if (diameter <= 64) {
+        setDiameter(diameter++)
+      } else clearInterval(interval)
+    }, 5)
+  }
 
   return (
-    <Circle ref={circle}>
-      <SVG width="160" height="160">
+    <Circle>
+      <SVG width={mobile ? 90 : 170} height={mobile ? 90 : 170}>
         <path
-          d={`M ${d},0 A ${d},${d} 0 0 1 -${d},0 A ${d},${d} 0 0 1 ${d},0`}
-          id="text-path"
-          transform="translate(80, 80)"
+          id="text-diameter"
+          d={`M ${diameter},0 A ${diameter},${diameter} 0 0 1 -${diameter},0 A ${diameter},${diameter} 0 0 1 ${diameter},0`}
+          transform={`translate(${mobile ? 45 : 85}, ${mobile ? 45 : 85})`}
           fill="none"
         />
-
-        <text style={{ fontWeight: 500 }}>
-          <textPath href="#text-path">
-            <tspan dy="2">
-              Download my CV - Download my CV - Download my CV -
+        <text
+          style={{
+            fontWeight: 500,
+            fontSize: styles.links.l2,
+          }}>
+          <textPath href="#text-diameter">
+            <tspan>
+              Download my CV - Download my CV -
+              {!mobile && diameter > 43 && ' Download my CV -'}
             </tspan>
           </textPath>
         </text>
       </SVG>
-      <Arrow src="./arrow-down.svg" alt="arrow-down" />
+      <a href="./cv.pdf" download style={{ display: 'inline-block' }}>
+        <Arrow
+          src="./arrow-down.svg"
+          alt="arrow-down"
+          onMouseOver={() => !mobile && handleOnMouseOver()}
+          onMouseLeave={() => !mobile && handleOnMouseLeave()}
+        />
+      </a>
     </Circle>
   )
 }
 
 const Circle = styled.div`
-  position: absolute;
+  position: fixed;
   z-index: 97;
-  transform: translate(-50%, -50%);
+  left: 80%;
+  top: 30%;
+  height: 170px;
+
+  @media (max-width: 1024px) {
+    & {
+      top: unset;
+      left: unset;
+      right: 20px;
+      bottom: 20px;
+      height: 90px;
+    }
+  }
 `
 
 const SVG = styled.svg`
   animation: rotate 15s linear infinite;
-
   @keyframes rotate {
     from {
       transform: rotate(0);
@@ -57,11 +89,19 @@ const SVG = styled.svg`
 `
 
 const Arrow = styled.img`
-  width: 30px;
+  width: 40px;
   position: absolute;
   left: 50%;
   top: 50%;
+  display: inline-block;
   transform: translate(-50%, -50%);
+  padding: 5px;
+
+  @media (max-width: 1024px) {
+    & {
+      width: 30px;
+    }
+  }
 `
 
 export default DownloadCV

@@ -56,7 +56,7 @@ const Contact = ({ styles, mobile, externalLinks }) => {
               color={styles.palette.grays.g1}
               size={styles.paragraphs.p1}
               style={{ marginTop: '10px' }}>
-              If you prefer ton ear my voice, you can call me.
+              If you prefer to ear my voice, you can call me.
             </Paragraph>
           </Way>
           <List>
