@@ -3,14 +3,22 @@ import Homepage from './sections/Homepage'
 import About from './sections/About'
 import Use from './sections/Use'
 import Contact from './sections/Contact'
+import Menu from './partials/Menu'
+import DownloadCV from './partials/DownloadCV'
 import { useState, useEffect } from 'react'
 
 const App = () => {
   const [mobile, setMobile] = useState(false)
+  const [menu, setMenu] = useState(false)
 
   const isMobile = () => {
     return window.innerWidth <= 1024
   }
+
+  useEffect(() => {
+    if (menu) document.body.style.overflow = 'hidden'
+    else document.body.style.overflow = 'auto'
+  }, [menu])
 
   useEffect(() => {
     isMobile() ? setMobile(true) : setMobile(false)
@@ -28,7 +36,7 @@ const App = () => {
 
   const styles = {
     titles: {
-      t1: mobile ? '80px' : '130px',
+      t1: mobile ? '70px' : '130px',
       t2: mobile ? '50px' : '70px',
       t3: mobile ? '30px' : '50px',
     },
@@ -62,7 +70,11 @@ const App = () => {
 
   return (
     <>
-      <Navbar styles={styles} mobile={mobile} />
+      <DownloadCV />
+      <Navbar styles={styles} mobile={mobile} menu={menu} setMenu={setMenu} />
+      {menu && (
+        <Menu styles={styles} mobile={mobile} menu={menu} setMenu={setMenu} />
+      )}
       <Homepage styles={styles} mobile={mobile} />
       <About styles={styles} mobile={mobile} />
       <Use styles={styles} mobile={mobile} />
