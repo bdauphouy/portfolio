@@ -9,10 +9,21 @@ import { useState, useEffect } from 'react'
 
 const App = () => {
   const [mobile, setMobile] = useState(false)
+  const [tablet, setTablet] = useState(false)
   const [menu, setMenu] = useState(false)
 
-  const isMobile = () => {
+  const isTablet = () => {
     return window.innerWidth <= 1024
+  }
+
+  const isMobile = () => {
+    return window.innerWidth <= 414
+  }
+
+  const methods = {
+    resolutionIsGreaterThan: resolution => {
+      return window.innerWidth > resolution
+    },
   }
 
   useEffect(() => {
@@ -22,10 +33,12 @@ const App = () => {
 
   useEffect(() => {
     isMobile() ? setMobile(true) : setMobile(false)
+    isTablet() ? setTablet(true) : setTablet(false)
   }, [])
 
   window.addEventListener('resize', () => {
     isMobile() ? setMobile(true) : setMobile(false)
+    isTablet() ? setTablet(true) : setTablet(false)
   })
 
   const externalLinks = {
@@ -36,16 +49,16 @@ const App = () => {
 
   const styles = {
     titles: {
-      t1: mobile ? '70px' : '130px',
-      t2: mobile ? '50px' : '70px',
-      t3: mobile ? '30px' : '50px',
+      t1: tablet ? '70px' : '130px',
+      t2: tablet ? '50px' : '70px',
+      t3: tablet ? '30px' : '50px',
     },
     paragraphs: {
       p1: '20px',
     },
     links: {
       l1: '20px',
-      l2: mobile ? '12px' : '15px',
+      l2: tablet ? '12px' : '15px',
     },
     palette: {
       greens: {
@@ -71,15 +84,15 @@ const App = () => {
 
   return (
     <>
-      <DownloadCV styles={styles} mobile={mobile} />
-      <Navbar styles={styles} mobile={mobile} menu={menu} setMenu={setMenu} />
+      <DownloadCV styles={styles} tablet={tablet} />
+      <Navbar styles={styles} tablet={tablet} menu={menu} setMenu={setMenu} />
       {menu && (
-        <Menu styles={styles} mobile={mobile} menu={menu} setMenu={setMenu} />
+        <Menu styles={styles} tablet={tablet} menu={menu} setMenu={setMenu} />
       )}
-      <Homepage styles={styles} mobile={mobile} />
-      <About styles={styles} mobile={mobile} />
-      <Use styles={styles} mobile={mobile} />
-      <Contact styles={styles} mobile={mobile} externalLinks={externalLinks} />
+      <Homepage styles={styles} tablet={tablet} />
+      <About styles={styles} mobile={mobile} tablet={tablet} />
+      <Use styles={styles} tablet={tablet} methods={methods} />
+      <Contact styles={styles} tablet={tablet} externalLinks={externalLinks} />
     </>
   )
 }

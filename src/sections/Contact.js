@@ -7,14 +7,14 @@ import {
   Link,
 } from '../components/Components'
 
-const Contact = ({ styles, mobile, externalLinks }) => {
+const Contact = ({ styles, tablet, externalLinks }) => {
   return (
     <>
       <Container
         padding={styles.paddings.p1}
         style={{
-          gridGap: !mobile ? '150px' : '80px',
-          flexDirection: mobile && 'column',
+          gridGap: !tablet ? '150px' : '80px',
+          flexDirection: tablet && 'column',
         }}>
         <Column style={{ flex: 1 }}>
           <Paragraph
@@ -90,7 +90,7 @@ const Contact = ({ styles, mobile, externalLinks }) => {
             size={styles.paragraphs.p1}
             style={{
               marginTop: '80px',
-              alignSelf: mobile && 'center',
+              alignSelf: tablet && 'center',
             }}>
             © 2021 - Baptiste Dauphouy
           </Paragraph>

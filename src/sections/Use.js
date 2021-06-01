@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 import { Container, Title, Column } from '../components/Components'
+import useResolutionIsGreaterThan from '../hooks/useResolutionIsGreaterThan'
 
-const Use = ({ styles }) => {
+const Use = ({ styles, methods }) => {
+  const greaterThan486 = useResolutionIsGreaterThan(486)
+
   return (
     <>
       <Container padding={styles.paddings.p1}>
@@ -12,7 +15,7 @@ const Use = ({ styles }) => {
             color={styles.palette.blacks.b1}>
             What I use
           </Title>
-          <List>
+          <List greaterThan486={greaterThan486}>
             <Item color={styles.palette.blacks.b1} size={styles.paragraphs.p1}>
               HTML
             </Item>
@@ -40,7 +43,8 @@ const List = styled.ul`
   margin-top: 50px;
   list-style: none;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: ${props =>
+    props.greaterThan486 ? 'space-between' : 'center'};
   width: 100%;
   grid-gap: 50px;
 `

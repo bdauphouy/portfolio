@@ -6,30 +6,15 @@ import {
   Link,
   Title,
 } from '../components/Components'
-import { useState, useEffect } from 'react'
 
-const About = ({ styles, mobile }) => {
-  const [smallDevice, setSmallDevice] = useState(false)
-
-  const isSmallDevice = () => {
-    return window.innerWidth <= 550
-  }
-
-  useEffect(() => {
-    isSmallDevice() ? setSmallDevice(true) : setSmallDevice(false)
-  }, [])
-
-  window.addEventListener('resize', () => {
-    isSmallDevice() ? setSmallDevice(true) : setSmallDevice(false)
-  })
-
+const About = ({ styles, tablet, mobile }) => {
   return (
     <>
       <Container
         padding={styles.paddings.p1}
         style={{
-          gridGap: !mobile ? '150px' : '80px',
-          flexDirection: mobile && 'column',
+          gridGap: !tablet ? '150px' : '80px',
+          flexDirection: tablet && 'column',
         }}>
         <Column style={{ flex: 1.5 }}>
           <Paragraph
@@ -63,7 +48,7 @@ const About = ({ styles, mobile }) => {
             Download my CV
           </Link>
         </Column>
-        <Column style={{ flex: 1, minWidth: !mobile && '350px' }}>
+        <Column style={{ flex: 1, minWidth: !tablet && '350px' }}>
           <Title
             size={styles.titles.t3}
             stroked
@@ -77,7 +62,7 @@ const About = ({ styles, mobile }) => {
               style={{ whiteSpace: 'nowrap' }}>
               2021-2024
             </Paragraph>
-            <Column style={{ marginLeft: smallDevice ? '30px' : '80px' }}>
+            <Column style={{ marginLeft: mobile ? '30px' : '80px' }}>
               <Paragraph
                 color={styles.palette.blacks.b1}
                 size={styles.paragraphs.p1}>
@@ -97,7 +82,7 @@ const About = ({ styles, mobile }) => {
               style={{ whiteSpace: 'nowrap' }}>
               2018-2021
             </Paragraph>
-            <Column style={{ marginLeft: smallDevice ? '30px' : '80px' }}>
+            <Column style={{ marginLeft: mobile ? '30px' : '80px' }}>
               <Paragraph
                 color={styles.palette.blacks.b1}
                 size={styles.paragraphs.p1}>
@@ -117,7 +102,7 @@ const About = ({ styles, mobile }) => {
               style={{ whiteSpace: 'nowrap' }}>
               2014-2018
             </Paragraph>
-            <Column style={{ marginLeft: smallDevice ? '30px' : '80px' }}>
+            <Column style={{ marginLeft: mobile ? '30px' : '80px' }}>
               <Paragraph
                 color={styles.palette.blacks.b1}
                 size={styles.paragraphs.p1}>

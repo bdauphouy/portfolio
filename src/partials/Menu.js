@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Title, Paragraph } from '../components/Components'
 
-const Menu = ({ styles, menu, setMenu, mobile }) => {
+const Menu = ({ styles, menu, setMenu, tablet }) => {
   return (
     <MenuContainer padding={styles.paddings.p1}>
       <NavLinks>
@@ -43,8 +43,8 @@ const Menu = ({ styles, menu, setMenu, mobile }) => {
           marginTop: '80px',
           position: 'absolute',
           bottom: styles.paddings.p2,
-          right: mobile ? '50%' : styles.paddings.p1,
-          transform: mobile && 'translateX(50%)',
+          right: tablet ? '50%' : styles.paddings.p1,
+          transform: tablet && 'translateX(50%)',
           whiteSpace: 'nowrap',
         }}>
         © 2021 - Baptiste Dauphouy

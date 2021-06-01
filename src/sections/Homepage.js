@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Title, Container, Stroked } from '../components/Components'
 
-const Homepage = ({ styles, mobile }) => {
+const Homepage = ({ styles, tablet }) => {
   return (
     <>
       <Container
@@ -21,12 +21,20 @@ const Homepage = ({ styles, mobile }) => {
       <Projects
         style={{
           gridTemplateColumns:
-            mobile && 'repeat(auto-fill, minmax(300px, 1fr))',
+            tablet && 'repeat(auto-fill, minmax(300px, 1fr))',
         }}>
-        <Project background={styles.palette.greens.g1} />
-        <Project background={styles.palette.greens.g2} />
-        <Project background={styles.palette.greens.g3} />
-        <Project background={styles.palette.greens.g4} />
+        <Project background={styles.palette.greens.g1}>
+          <ProjectThumbnail src="./projects-thumbnails/fantashop.png" />
+        </Project>
+        <Project background={styles.palette.greens.g2}>
+          <ProjectThumbnail src="./projects-thumbnails/institut.png" />
+        </Project>
+        <Project background={styles.palette.greens.g3}>
+          <ProjectThumbnail src="./projects-thumbnails/benjamin-code.png" />
+        </Project>
+        <Project background={styles.palette.greens.g4}>
+          <ProjectThumbnail src="./projects-thumbnails/flexomatic.png" />
+        </Project>
       </Projects>
     </>
   )
@@ -35,12 +43,21 @@ const Homepage = ({ styles, mobile }) => {
 const Projects = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
-  grid-gap: 20px;
 `
 
 const Project = styled.div`
-  height: 250px;
+  height: 15vw;
+  min-height: 250px;
+  max-height: 400px;
+  min-width: 300px;
+  flex: 1;
   background: ${props => props.background};
+`
+
+const ProjectThumbnail = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `
 
 export default Homepage

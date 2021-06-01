@@ -1,12 +1,12 @@
 import styled from 'styled-components'
 import { useState, useEffect } from 'react'
 
-const DownloadCV = ({ styles, mobile }) => {
-  let [diameter, setDiameter] = useState(mobile ? 34 : 64)
+const DownloadCV = ({ styles, tablet }) => {
+  let [diameter, setDiameter] = useState(tablet ? 34 : 64)
 
   useEffect(() => {
-    setDiameter(mobile ? 34 : 64)
-  }, [mobile])
+    setDiameter(tablet ? 34 : 64)
+  }, [tablet])
 
   const handleOnMouseOver = () => {
     const interval = setInterval(() => {
@@ -26,11 +26,11 @@ const DownloadCV = ({ styles, mobile }) => {
 
   return (
     <Circle>
-      <SVG width={mobile ? 90 : 170} height={mobile ? 90 : 170}>
+      <SVG width={tablet ? 90 : 170} height={tablet ? 90 : 170}>
         <path
           id="text-diameter"
           d={`M ${diameter},0 A ${diameter},${diameter} 0 0 1 -${diameter},0 A ${diameter},${diameter} 0 0 1 ${diameter},0`}
-          transform={`translate(${mobile ? 45 : 85}, ${mobile ? 45 : 85})`}
+          transform={`translate(${tablet ? 45 : 85}, ${tablet ? 45 : 85})`}
           fill="none"
         />
         <text
@@ -41,7 +41,7 @@ const DownloadCV = ({ styles, mobile }) => {
           <textPath href="#text-diameter">
             <tspan>
               Download my CV - Download my CV -
-              {!mobile && diameter > 43 && ' Download my CV -'}
+              {!tablet && diameter > 43 && ' Download my CV -'}
             </tspan>
           </textPath>
         </text>
@@ -50,8 +50,8 @@ const DownloadCV = ({ styles, mobile }) => {
         <Arrow
           src="./arrow-down.svg"
           alt="arrow-down"
-          onMouseOver={() => !mobile && handleOnMouseOver()}
-          onMouseLeave={() => !mobile && handleOnMouseLeave()}
+          onMouseOver={() => !tablet && handleOnMouseOver()}
+          onMouseLeave={() => !tablet && handleOnMouseLeave()}
         />
       </a>
     </Circle>
