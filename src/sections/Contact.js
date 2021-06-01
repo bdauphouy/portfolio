@@ -20,7 +20,7 @@ const Contact = ({ styles, tablet, externalLinks }) => {
           <Paragraph
             color={styles.palette.blacks.b1}
             size={styles.paragraphs.p1}>
-            For all inqueries about me, you can contact me by email, phone
+            For any inqueries about me, you can contact me by email, phone
             number or with social networks.
           </Paragraph>
         </Column>
