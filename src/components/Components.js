@@ -45,7 +45,7 @@ const Stroked = styled.span`
 `
 
 const Container = styled.section`
-  padding: 100px ${props => props.padding};
+  padding: ${props => props.padding};
   display: flex;
 `
 

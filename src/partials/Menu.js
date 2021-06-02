@@ -1,48 +1,41 @@
 import styled from 'styled-components'
 import { Title, Paragraph } from '../components/Components'
 
-const Menu = ({ styles, menu, setMenu, tablet }) => {
+const Menu = ({ styles, palette, tablet }) => {
   return (
-    <MenuContainer padding={styles.paddings.p1}>
+    <MenuContainer
+      padding={styles.paddings.p1}
+      background={styles.colors.background}>
       <NavLinks>
         <li>
           <NavLink href="/">
-            <Title
-              size={styles.titles.t1}
-              color={styles.palette.blacks.b1}
-              stroked>
+            <Title size={styles.titles.t1} color={styles.colors.text} stroked>
               About
             </Title>
           </NavLink>
         </li>
         <li>
           <NavLink href="/">
-            <Title
-              size={styles.titles.t1}
-              color={styles.palette.blacks.b1}
-              stroked>
+            <Title size={styles.titles.t1} color={styles.colors.text} stroked>
               What I use
             </Title>
           </NavLink>
         </li>
         <li>
           <NavLink href="/">
-            <Title
-              size={styles.titles.t1}
-              color={styles.palette.blacks.b1}
-              stroked>
+            <Title size={styles.titles.t1} color={styles.colors.text} stroked>
               Contact
             </Title>
           </NavLink>
         </li>
       </NavLinks>
       <Paragraph
-        color={styles.palette.grays.g1}
+        color={palette.grays.g1}
         size={styles.paragraphs.p1}
         style={{
           marginTop: '80px',
           position: 'absolute',
-          bottom: styles.paddings.p2,
+          bottom: '30px',
           right: tablet ? '50%' : styles.paddings.p1,
           transform: tablet && 'translateX(50%)',
           whiteSpace: 'nowrap',
@@ -57,7 +50,7 @@ const MenuContainer = styled.div`
   position: fixed;
   width: 100%;
   height: 100%;
-  background: white;
+  background: ${props => props.background};
   z-index: 98;
   padding: 100px ${props => props.padding};
   display: flex;

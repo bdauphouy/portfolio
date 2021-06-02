@@ -2,33 +2,30 @@ import styled from 'styled-components'
 import { Container, Title, Column } from '../components/Components'
 import useResolutionIsGreaterThan from '../hooks/useResolutionIsGreaterThan'
 
-const Use = ({ styles, methods }) => {
+const Use = ({ styles }) => {
   const greaterThan486 = useResolutionIsGreaterThan(486)
 
   return (
     <>
-      <Container padding={styles.paddings.p1}>
+      <Container padding={`${styles.paddings.p4} ${styles.paddings.p1}`}>
         <Column style={{ width: '100%', alignItems: 'center' }}>
-          <Title
-            size={styles.titles.t3}
-            stroked
-            color={styles.palette.blacks.b1}>
+          <Title size={styles.titles.t3} stroked color={styles.colors.text}>
             What I use
           </Title>
           <List greaterThan486={greaterThan486}>
-            <Item color={styles.palette.blacks.b1} size={styles.paragraphs.p1}>
+            <Item color={styles.colors.text} size={styles.paragraphs.p1}>
               HTML
             </Item>
-            <Item color={styles.palette.blacks.b1} size={styles.paragraphs.p1}>
+            <Item color={styles.colors.text} size={styles.paragraphs.p1}>
               CSS
             </Item>
-            <Item color={styles.palette.blacks.b1} size={styles.paragraphs.p1}>
+            <Item color={styles.colors.text} size={styles.paragraphs.p1}>
               Javascript
             </Item>
-            <Item color={styles.palette.blacks.b1} size={styles.paragraphs.p1}>
+            <Item color={styles.colors.text} size={styles.paragraphs.p1}>
               React
             </Item>
-            <Item color={styles.palette.blacks.b1} size={styles.paragraphs.p1}>
+            <Item color={styles.colors.text} size={styles.paragraphs.p1}>
               Three.js
             </Item>
           </List>

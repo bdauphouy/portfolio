@@ -25,7 +25,10 @@ const DownloadCV = ({ styles, tablet }) => {
   }
 
   return (
-    <Circle>
+    <Circle
+      padding={`${parseFloat(styles.paddings.p3) + 80 + 'px'} ${
+        styles.paddings.p2
+      }`}>
       <SVG width={tablet ? 90 : 170} height={tablet ? 90 : 170}>
         <path
           id="text-diameter"
@@ -37,6 +40,7 @@ const DownloadCV = ({ styles, tablet }) => {
           style={{
             fontWeight: 500,
             fontSize: styles.links.l2,
+            fill: styles.colors.text,
           }}>
           <textPath href="#text-diameter">
             <tspan>
@@ -69,8 +73,8 @@ const Circle = styled.div`
     & {
       top: unset;
       left: unset;
-      right: 20px;
-      bottom: 20px;
+      right: ${props => props.padding.split(' ')[1]};
+      bottom: ${props => props.padding.split(' ')[0]};
       height: 90px;
     }
   }

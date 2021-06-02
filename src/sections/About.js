@@ -7,25 +7,25 @@ import {
   Title,
 } from '../components/Components'
 
-const About = ({ styles, tablet, mobile }) => {
+const About = ({ styles, palette, mobile, tablet }) => {
   return (
     <>
       <Container
-        padding={styles.paddings.p1}
+        padding={`${styles.paddings.p4} ${styles.paddings.p1}`}
         style={{
           gridGap: !tablet ? '150px' : '80px',
           flexDirection: tablet && 'column',
         }}>
         <Column style={{ flex: 1.5 }}>
           <Paragraph
-            color={styles.palette.blacks.b1}
+            color={styles.colors.text}
             size={styles.paragraphs.p1}
             style={{ marginTop: '20px' }}>
             My name is Baptiste Dauphouy, I am french developer, 17 years old,
             and I live near Rennes in France.
           </Paragraph>
           <Paragraph
-            color={styles.palette.blacks.b1}
+            color={styles.colors.text}
             size={styles.paragraphs.p1}
             style={{ marginTop: '20px' }}>
             I have been a frontend developer for 2 years and today I would like
@@ -33,7 +33,7 @@ const About = ({ styles, tablet, mobile }) => {
             of years.
           </Paragraph>
           <Paragraph
-            color={styles.palette.blacks.b1}
+            color={styles.colors.text}
             size={styles.paragraphs.p1}
             style={{ marginTop: '20px' }}>
             So, if you want to work with me, you will find below, the ways to
@@ -43,74 +43,59 @@ const About = ({ styles, tablet, mobile }) => {
             href="/cv.pdf"
             download
             size={styles.links.l1}
-            color={styles.palette.greens.g5}
+            color={palette.greens.g5}
             style={{ marginTop: '50px' }}>
             Download my CV
           </Link>
         </Column>
         <Column style={{ flex: 1, minWidth: !tablet && '350px' }}>
-          <Title
-            size={styles.titles.t3}
-            stroked
-            color={styles.palette.blacks.b1}>
+          <Title size={styles.titles.t3} stroked color={styles.colors.text}>
             Curriculum
           </Title>
           <Step style={{ marginTop: '50px' }}>
             <Paragraph
-              color={styles.palette.grays.g1}
+              color={palette.grays.g1}
               size={styles.paragraphs.p1}
               style={{ whiteSpace: 'nowrap' }}>
               2021-2024
             </Paragraph>
             <Column style={{ marginLeft: mobile ? '30px' : '80px' }}>
-              <Paragraph
-                color={styles.palette.blacks.b1}
-                size={styles.paragraphs.p1}>
+              <Paragraph color={styles.colors.text} size={styles.paragraphs.p1}>
                 HETIC
               </Paragraph>
-              <Paragraph
-                color={styles.palette.grays.g1}
-                size={styles.paragraphs.p1}>
+              <Paragraph color={palette.grays.g1} size={styles.paragraphs.p1}>
                 Montreuil, France
               </Paragraph>
             </Column>
           </Step>
           <Step>
             <Paragraph
-              color={styles.palette.grays.g1}
+              color={palette.grays.g1}
               size={styles.paragraphs.p1}
               style={{ whiteSpace: 'nowrap' }}>
               2018-2021
             </Paragraph>
             <Column style={{ marginLeft: mobile ? '30px' : '80px' }}>
-              <Paragraph
-                color={styles.palette.blacks.b1}
-                size={styles.paragraphs.p1}>
+              <Paragraph color={styles.colors.text} size={styles.paragraphs.p1}>
                 Lycée Saint-Sauveur
               </Paragraph>
-              <Paragraph
-                color={styles.palette.grays.g1}
-                size={styles.paragraphs.p1}>
+              <Paragraph color={palette.grays.g1} size={styles.paragraphs.p1}>
                 Redon, France
               </Paragraph>
             </Column>
           </Step>
           <Step>
             <Paragraph
-              color={styles.palette.grays.g1}
+              color={palette.grays.g1}
               size={styles.paragraphs.p1}
               style={{ whiteSpace: 'nowrap' }}>
               2014-2018
             </Paragraph>
             <Column style={{ marginLeft: mobile ? '30px' : '80px' }}>
-              <Paragraph
-                color={styles.palette.blacks.b1}
-                size={styles.paragraphs.p1}>
+              <Paragraph color={styles.colors.text} size={styles.paragraphs.p1}>
                 Collège Saint-Martin
               </Paragraph>
-              <Paragraph
-                color={styles.palette.grays.g1}
-                size={styles.paragraphs.p1}>
+              <Paragraph color={palette.grays.g1} size={styles.paragraphs.p1}>
                 Pontchâteau, France
               </Paragraph>
             </Column>

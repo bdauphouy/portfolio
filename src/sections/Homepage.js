@@ -1,40 +1,44 @@
 import styled from 'styled-components'
 import { Title, Container, Stroked } from '../components/Components'
 
-const Homepage = ({ styles, tablet }) => {
+const Homepage = ({ styles, palette }) => {
   return (
     <>
       <Container
-        padding={styles.paddings.p1}
-        style={{ minHeight: '500px', alignItems: 'flex-end' }}>
-        <Title size={styles.titles.t2} color={styles.palette.blacks.b1}>
+        padding={`${styles.paddings.p4} ${styles.paddings.p1}`}
+        style={{ alignItems: 'flex-end', minHeight: '500px' }}>
+        <Title size={styles.titles.t2} color={styles.colors.text}>
           Hello, I am
           <Stroked
             size={styles.titles.t2}
-            color={styles.palette.blacks.b1}
+            color={styles.colors.text}
             style={{ marginLeft: '15px' }}>
             Baptiste Dauphouy
           </Stroked>
           , a frontend developer.
         </Title>
       </Container>
-      <Projects
-        style={{
-          gridTemplateColumns:
-            tablet && 'repeat(auto-fill, minmax(300px, 1fr))',
-        }}>
-        <Project background={styles.palette.greens.g1}>
-          <ProjectThumbnail src="./projects-thumbnails/fantashop.png" />
-        </Project>
-        <Project background={styles.palette.greens.g2}>
-          <ProjectThumbnail src="./projects-thumbnails/institut.png" />
-        </Project>
-        <Project background={styles.palette.greens.g3}>
-          <ProjectThumbnail src="./projects-thumbnails/benjamin-code.png" />
-        </Project>
-        <Project background={styles.palette.greens.g4}>
-          <ProjectThumbnail src="./projects-thumbnails/flexomatic.png" />
-        </Project>
+      <Projects>
+        <a href="/">
+          <Project background={palette.greens.g1}>
+            <ProjectThumbnail src="./projects-thumbnails/fantashop.png" />
+          </Project>
+        </a>
+        <a href="/">
+          <Project background={palette.greens.g2}>
+            <ProjectThumbnail src="./projects-thumbnails/institut.png" />
+          </Project>
+        </a>
+        <a href="/">
+          <Project background={palette.greens.g3}>
+            <ProjectThumbnail src="./projects-thumbnails/benjamin-code.png" />
+          </Project>
+        </a>
+        <a href="/">
+          <Project background={palette.greens.g4}>
+            <ProjectThumbnail src="./projects-thumbnails/flexomatic.png" />
+          </Project>
+        </a>
       </Projects>
     </>
   )

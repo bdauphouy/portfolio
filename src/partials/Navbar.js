@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 const Navbar = ({ styles, menu, setMenu }) => {
   return (
-    <Nav padding={styles.paddings.p2}>
+    <Nav padding={`${styles.paddings.p3} ${styles.paddings.p2}`}>
       <a href="/" style={{ textDecoration: 'none' }}>
-        <Name size={styles.paragraphs.p1} color={styles.palette.blacks.b1}>
+        <Name size={styles.paragraphs.p1} color={styles.colors.text}>
           baptiste
           <br />
           dauphouy
@@ -12,16 +12,15 @@ const Navbar = ({ styles, menu, setMenu }) => {
       </a>
       <Button
         size={styles.paragraphs.p1}
-        color={styles.palette.blacks.b1}
+        color={styles.colors.text}
         onClick={() => setMenu(!menu)}>
-        {menu ? <Cross /> : 'menu'}
+        {menu ? <Cross color={styles.colors.text} /> : 'menu'}
       </Button>
     </Nav>
   )
 }
 
 const Nav = styled.nav`
-  height: 100px;
   width: 100%;
   position: absolute;
   top: 0;
@@ -52,7 +51,7 @@ const Cross = styled.span`
   width: 30px;
   height: 3px;
   display: inline-block;
-  background: black;
+  background: ${props => props.color};
   position: relative;
   margin-bottom: 3px;
   transform: rotate(45deg);
@@ -62,7 +61,7 @@ const Cross = styled.span`
     content: '';
     width: 30px;
     height: 3px;
-    background: black;
+    background: ${props => props.color};
     top: 0;
     left: 0;
     transform: rotate(-90deg);
