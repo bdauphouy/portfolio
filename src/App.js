@@ -7,6 +7,7 @@ import Menu from './partials/Menu'
 import DownloadCV from './components/DownloadCV'
 import SwitchTheme from './components/SwitchTheme'
 import Footer from './partials/Footer'
+import Loader from './partials/Loader'
 import useLocalStorage from './hooks/useLocalStorage'
 import { useState, useEffect } from 'react'
 
@@ -14,6 +15,7 @@ const App = () => {
   const [mobile, setMobile] = useState(false)
   const [tablet, setTablet] = useState(false)
   const [menu, setMenu] = useState(false)
+  const [load, setLoad] = useState(false)
   const [theme, setTheme] = useLocalStorage('bdph-portfolio-theme', 'dark')
 
   const isTablet = () => {
@@ -32,6 +34,8 @@ const App = () => {
   useEffect(() => {
     isMobile() ? setMobile(true) : setMobile(false)
     isTablet() ? setTablet(true) : setTablet(false)
+
+    window.addEventListener('load', () => setLoad(true))
   }, [])
 
   window.addEventListener('resize', () => {
@@ -97,6 +101,7 @@ const App = () => {
 
   return (
     <>
+      <Loader styles={styles} load={load} />
       <SwitchTheme styles={styles} theme={theme} setTheme={setTheme} />
       <DownloadCV styles={styles} tablet={tablet} />
       <Navbar styles={styles} menu={menu} setMenu={setMenu} />

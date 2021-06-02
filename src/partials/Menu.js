@@ -4,7 +4,7 @@ import { Title, Paragraph } from '../components/Components'
 const Menu = ({ styles, palette, tablet }) => {
   return (
     <MenuContainer
-      padding={styles.paddings.p1}
+      padding={`${styles.paddings.p4} ${styles.paddings.p1}`}
       background={styles.colors.background}>
       <NavLinks>
         <li>
@@ -52,7 +52,7 @@ const MenuContainer = styled.div`
   height: 100%;
   background: ${props => props.background};
   z-index: 98;
-  padding: 100px ${props => props.padding};
+  padding: ${props => props.padding};
   display: flex;
   align-items: center;
 `
