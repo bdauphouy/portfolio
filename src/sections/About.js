@@ -7,10 +7,11 @@ import {
   Title,
 } from '../components/Components'
 
-const About = ({ styles, palette, mobile, tablet }) => {
+const About = ({ styles, palette, mobile, tablet, appear }) => {
   return (
     <>
       <Container
+        id="about"
         padding={`${styles.paddings.p4} ${styles.paddings.p1}`}
         style={{
           gridGap: !tablet ? '150px' : '80px',

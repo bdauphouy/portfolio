@@ -11,6 +11,7 @@ const Contact = ({ styles, palette, tablet, externalLinks }) => {
   return (
     <>
       <Container
+        id="contact"
         padding={`${styles.paddings.p4} ${styles.paddings.p1}`}
         style={{
           gridGap: !tablet ? '150px' : '80px',

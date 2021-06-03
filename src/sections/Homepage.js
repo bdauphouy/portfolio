@@ -1,13 +1,17 @@
 import styled from 'styled-components'
 import { Title, Container, Stroked } from '../components/Components'
 
-const Homepage = ({ styles, palette }) => {
+const Homepage = ({ styles, palette, appear }) => {
   return (
     <>
       <Container
+        id="home"
         padding={`${styles.paddings.p4} ${styles.paddings.p1}`}
         style={{ alignItems: 'flex-end', minHeight: '500px' }}>
-        <Title size={styles.titles.t2} color={styles.colors.text}>
+        <Title
+          className="appearLeft"
+          size={styles.titles.t2}
+          color={styles.colors.text}>
           Hello, I am
           <Stroked
             size={styles.titles.t2}

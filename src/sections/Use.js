@@ -7,7 +7,9 @@ const Use = ({ styles }) => {
 
   return (
     <>
-      <Container padding={`${styles.paddings.p4} ${styles.paddings.p1}`}>
+      <Container
+        id="use"
+        padding={`${styles.paddings.p4} ${styles.paddings.p1}`}>
         <Column style={{ width: '100%', alignItems: 'center' }}>
           <Title size={styles.titles.t3} stroked color={styles.colors.text}>
             What I use

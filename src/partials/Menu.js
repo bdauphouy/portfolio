@@ -1,28 +1,47 @@
 import styled from 'styled-components'
 import { Title, Paragraph } from '../components/Components'
+import gsap from 'gsap'
+import { useEffect } from 'react'
 
-const Menu = ({ styles, palette, tablet }) => {
+const Menu = ({
+  styles,
+  palette,
+  tablet,
+  menu,
+  setMenu,
+  closeMenu,
+  setCloseMenu,
+}) => {
+  useEffect(() => {
+    menu && gsap.to('#menu', { opacity: 1, duration: 0.5 })
+  }, [menu])
+
+  useEffect(() => {
+    closeMenu && gsap.to('#menu', { opacity: 0, duration: 0.5 })
+  }, [closeMenu])
+
   return (
     <MenuContainer
       padding={`${styles.paddings.p4} ${styles.paddings.p1}`}
-      background={styles.colors.background}>
+      background={styles.colors.background}
+      id="menu">
       <NavLinks>
         <li>
-          <NavLink href="/">
+          <NavLink href="/about" color={styles.colors.text}>
             <Title size={styles.titles.t1} color={styles.colors.text} stroked>
               About
             </Title>
           </NavLink>
         </li>
         <li>
-          <NavLink href="/">
+          <NavLink href="/use" color={styles.colors.text}>
             <Title size={styles.titles.t1} color={styles.colors.text} stroked>
               What I use
             </Title>
           </NavLink>
         </li>
         <li>
-          <NavLink href="/">
+          <NavLink href="/contact" color={styles.colors.text}>
             <Title size={styles.titles.t1} color={styles.colors.text} stroked>
               Contact
             </Title>
@@ -55,6 +74,7 @@ const MenuContainer = styled.div`
   padding: ${props => props.padding};
   display: flex;
   align-items: center;
+  opacity: 0;
 `
 
 const NavLinks = styled.ul`
@@ -65,6 +85,14 @@ const NavLink = styled.a`
   text-decoration: none;
   display: inline-block;
   margin-top: 20px;
+
+  & h2 {
+    transition: color 0.4s;
+  }
+
+  & h2:hover {
+    color: ${props => props.color};
+  }
 `
 
 export default Menu

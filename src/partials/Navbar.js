@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-const Navbar = ({ styles, menu, setMenu }) => {
+const Navbar = ({ styles, menu, setMenu, setCloseMenu, closeMenu }) => {
   return (
     <Nav padding={`${styles.paddings.p3} ${styles.paddings.p2}`}>
       <a href="/" style={{ textDecoration: 'none' }}>
@@ -13,8 +13,15 @@ const Navbar = ({ styles, menu, setMenu }) => {
       <Button
         size={styles.paragraphs.p1}
         color={styles.colors.text}
-        onClick={() => setMenu(!menu)}>
-        {menu ? <Cross color={styles.colors.text} /> : 'menu'}
+        onClick={() =>
+          !menu
+            ? (setMenu(true), setCloseMenu(false))
+            : (setCloseMenu(true),
+              setTimeout(() => {
+                setMenu(false)
+              }, 500))
+        }>
+        <Burger active={!closeMenu} color={styles.colors.text} />
       </Button>
     </Nav>
   )
@@ -47,24 +54,30 @@ const Button = styled.button`
   position: relative;
 `
 
-const Cross = styled.span`
+const Burger = styled.span`
   width: 30px;
-  height: 3px;
-  display: inline-block;
-  background: ${props => props.color};
+  height: 30px;
   position: relative;
-  margin-bottom: 3px;
-  transform: rotate(45deg);
+  display: block;
 
-  &::before {
-    position: absolute;
+  &::before,
+  &::after {
     content: '';
-    width: 30px;
+    position: absolute;
+    width: 100%;
     height: 3px;
     background: ${props => props.color};
-    top: 0;
     left: 0;
-    transform: rotate(-90deg);
+    transition: top 0.3s, transform 0.3s;
+  }
+  &::before {
+    top: ${props => (!props.active ? 'calc(100% / 3)' : '50%')};
+    transform: translateY(-50%) ${props => props.active && 'rotate(45deg)'};
+  }
+
+  &::after {
+    top: ${props => (!props.active ? 'calc(200% / 3)' : '50%')};
+    transform: translateY(-50%) ${props => props.active && 'rotate(-45deg)'};
   }
 `
 

@@ -12,10 +12,16 @@ import useLocalStorage from './hooks/useLocalStorage'
 import { useState, useEffect } from 'react'
 
 const App = () => {
+  const dev = true
+
   const [mobile, setMobile] = useState(false)
   const [tablet, setTablet] = useState(false)
   const [menu, setMenu] = useState(false)
-  const [load, setLoad] = useState(false)
+  const [closeMenu, setCloseMenu] = useState(true)
+  const [load, setLoad] = useState(dev ? true : false)
+  const [loader, setLoader] = useState(dev ? false : true)
+  const [appear, setAppear] = useState(dev ? true : false)
+  const [animate, setAnimate] = useState(dev ? false : true)
   const [theme, setTheme] = useLocalStorage('bdph-portfolio-theme', 'dark')
 
   const isTablet = () => {
@@ -32,11 +38,30 @@ const App = () => {
   }, [menu])
 
   useEffect(() => {
+    document
+      .querySelector(
+        `#${
+          window.location.pathname === '/'
+            ? 'home'
+            : window.location.pathname.slice(1)
+        }`,
+      )
+      .scrollIntoView()
+
     isMobile() ? setMobile(true) : setMobile(false)
     isTablet() ? setTablet(true) : setTablet(false)
 
     window.addEventListener('load', () => setLoad(true))
+
+    setTimeout(() => {
+      setAnimate(false)
+    }, 3000)
   }, [])
+
+  useEffect(() => {
+    load && !animate && setTimeout(() => setLoader(false), 500)
+    load && !animate && setTimeout(() => setAppear(true), 0)
+  }, [load, animate])
 
   window.addEventListener('resize', () => {
     isMobile() ? setMobile(true) : setMobile(false)
@@ -101,10 +126,17 @@ const App = () => {
 
   return (
     <>
-      <Loader styles={styles} load={load} />
+      {loader && <Loader styles={styles} load={load} animate={animate} />}
       <SwitchTheme styles={styles} theme={theme} setTheme={setTheme} />
       <DownloadCV styles={styles} tablet={tablet} />
-      <Navbar styles={styles} menu={menu} setMenu={setMenu} />
+      <Navbar
+        styles={styles}
+        menu={menu}
+        setMenu={setMenu}
+        setCloseMenu={setCloseMenu}
+        closeMenu={closeMenu}
+      />
+
       {menu && (
         <Menu
           styles={styles}
@@ -112,14 +144,18 @@ const App = () => {
           tablet={tablet}
           menu={menu}
           setMenu={setMenu}
+          closeMenu={closeMenu}
+          setCloseMenu={setCloseMenu}
         />
       )}
-      <Homepage styles={styles} palette={palette} />
+
+      <Homepage styles={styles} palette={palette} appear={appear} />
       <About
         styles={styles}
         palette={palette}
         mobile={mobile}
         tablet={tablet}
+        appear={appear}
       />
       <Use styles={styles} tablet={tablet} />
       <Contact
