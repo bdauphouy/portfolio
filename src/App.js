@@ -12,7 +12,7 @@ import useLocalStorage from './hooks/useLocalStorage'
 import { useState, useEffect } from 'react'
 
 const App = () => {
-  const dev = true
+  const dev = false
 
   const [mobile, setMobile] = useState(false)
   const [tablet, setTablet] = useState(false)
