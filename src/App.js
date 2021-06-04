@@ -9,11 +9,14 @@ import SwitchTheme from './components/SwitchTheme'
 import Footer from './partials/Footer'
 import Loader from './partials/Loader'
 import useLocalStorage from './hooks/useLocalStorage'
+import PageNotFound from './sections/404'
 import { useState, useEffect } from 'react'
+import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 
 const App = () => {
   const dev = false
 
+  const [endpoints] = useState(['/', '/about', '/use', '/contact'])
   const [mobile, setMobile] = useState(false)
   const [tablet, setTablet] = useState(false)
   const [menu, setMenu] = useState(false)
@@ -23,50 +26,6 @@ const App = () => {
   const [appear, setAppear] = useState(dev ? true : false)
   const [animate, setAnimate] = useState(dev ? false : true)
   const [theme, setTheme] = useLocalStorage('bdph-portfolio-theme', 'dark')
-
-  const isTablet = () => {
-    return window.innerWidth <= 1024
-  }
-
-  const isMobile = () => {
-    return window.innerWidth <= 414
-  }
-
-  useEffect(() => {
-    if (menu) document.body.style.overflow = 'hidden'
-    else document.body.style.overflow = 'auto'
-  }, [menu])
-
-  useEffect(() => {
-    document
-      .querySelector(
-        `#${
-          window.location.pathname === '/'
-            ? 'home'
-            : window.location.pathname.slice(1)
-        }`,
-      )
-      .scrollIntoView()
-
-    isMobile() ? setMobile(true) : setMobile(false)
-    isTablet() ? setTablet(true) : setTablet(false)
-
-    window.addEventListener('load', () => setLoad(true))
-
-    setTimeout(() => {
-      setAnimate(false)
-    }, 3000)
-  }, [])
-
-  useEffect(() => {
-    load && !animate && setTimeout(() => setLoader(false), 500)
-    load && !animate && setTimeout(() => setAppear(true), 0)
-  }, [load, animate])
-
-  window.addEventListener('resize', () => {
-    isMobile() ? setMobile(true) : setMobile(false)
-    isTablet() ? setTablet(true) : setTablet(false)
-  })
 
   const externalLinks = {
     twitter: 'https://twitter.com/baptistedph',
@@ -120,15 +79,62 @@ const App = () => {
     },
   }
 
+  const isTablet = () => {
+    return window.innerWidth <= 1024
+  }
+
+  const isMobile = () => {
+    return window.innerWidth <= 414
+  }
+
+  useEffect(() => {
+    window.addEventListener('resize', () => {
+      isMobile() ? setMobile(true) : setMobile(false)
+      isTablet() ? setTablet(true) : setTablet(false)
+    })
+
+    isMobile() ? setMobile(true) : setMobile(false)
+    isTablet() ? setTablet(true) : setTablet(false)
+
+    window.addEventListener('load', () => setLoad(true))
+
+    setTimeout(() => {
+      setAnimate(false)
+    }, 3000)
+  }, [])
+
+  useEffect(() => {
+    if (menu) document.body.style.overflow = 'hidden'
+    else document.body.style.overflow = 'auto'
+  }, [menu])
+
+  useEffect(() => {
+    if (!endpoints.includes(window.location.pathname)) return
+    const view = document.querySelector(
+      `#${
+        window.location.hash === '#/' ? 'home' : window.location.hash.slice(2)
+      }`,
+    )
+    setTimeout(() => !loader && view.scrollIntoView(), 500)
+  }, [loader, endpoints])
+
+  useEffect(() => {
+    load && !animate && setTimeout(() => setLoader(false), 500)
+    load && !animate && setTimeout(() => setAppear(true), 0)
+  }, [load, animate])
+
+  useEffect(() => {
+    closeMenu && setTimeout(() => setMenu(false), 500)
+  }, [closeMenu])
+
   useEffect(() => {
     document.body.style.background = styles.colors.background
   }, [styles.colors.background])
 
   return (
-    <>
+    <Router basename="/">
       {loader && <Loader styles={styles} load={load} animate={animate} />}
       <SwitchTheme styles={styles} theme={theme} setTheme={setTheme} />
-      <DownloadCV styles={styles} tablet={tablet} />
       <Navbar
         styles={styles}
         menu={menu}
@@ -148,24 +154,37 @@ const App = () => {
           setCloseMenu={setCloseMenu}
         />
       )}
+      <Switch>
+        <Route exact path={['/', '/about', '/use', '/contact']}>
+          <DownloadCV styles={styles} tablet={tablet} />
 
-      <Homepage styles={styles} palette={palette} appear={appear} />
-      <About
-        styles={styles}
-        palette={palette}
-        mobile={mobile}
-        tablet={tablet}
-        appear={appear}
-      />
-      <Use styles={styles} tablet={tablet} />
-      <Contact
-        styles={styles}
-        palette={palette}
-        tablet={tablet}
-        externalLinks={externalLinks}
-      />
-      <Footer styles={styles} palette={palette} tablet={tablet} />
-    </>
+          <Homepage
+            styles={styles}
+            palette={palette}
+            mobile={mobile}
+            appear={appear}
+          />
+          <About
+            styles={styles}
+            palette={palette}
+            mobile={mobile}
+            tablet={tablet}
+            appear={appear}
+          />
+          <Use styles={styles} tablet={tablet} />
+          <Contact
+            styles={styles}
+            palette={palette}
+            tablet={tablet}
+            externalLinks={externalLinks}
+          />
+          <Footer styles={styles} palette={palette} tablet={tablet} />
+        </Route>
+        <Route>
+          <PageNotFound styles={styles} />
+        </Route>
+      </Switch>
+    </Router>
   )
 }
 

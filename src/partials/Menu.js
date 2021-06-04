@@ -1,7 +1,9 @@
 import styled from 'styled-components'
-import { Title, Paragraph } from '../components/Components'
+import { Paragraph } from '../components/Components'
 import gsap from 'gsap'
 import { useEffect } from 'react'
+import { NavLink } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 
 const Menu = ({
   styles,
@@ -12,6 +14,16 @@ const Menu = ({
   closeMenu,
   setCloseMenu,
 }) => {
+  const location = useLocation()
+
+  useEffect(() => {
+    console.log(location)
+    const view = document.querySelector(
+      `#${location.pathname === '/' ? 'home' : location.pathname.slice(1)}`,
+    )
+    setTimeout(() => view.scrollIntoView(), 500)
+  }, [location])
+
   useEffect(() => {
     menu && gsap.to('#menu', { opacity: 1, duration: 0.5 })
   }, [menu])
@@ -27,24 +39,24 @@ const Menu = ({
       id="menu">
       <NavLinks>
         <li>
-          <NavLink href="/about" color={styles.colors.text}>
-            <Title size={styles.titles.t1} color={styles.colors.text} stroked>
+          <NavLink to="/about" onClick={() => setCloseMenu(true)}>
+            <NavItem size={styles.titles.t1} color={styles.colors.text} stroked>
               About
-            </Title>
+            </NavItem>
           </NavLink>
         </li>
         <li>
-          <NavLink href="/use" color={styles.colors.text}>
-            <Title size={styles.titles.t1} color={styles.colors.text} stroked>
+          <NavLink to="/use" onClick={() => setCloseMenu(true)}>
+            <NavItem size={styles.titles.t1} color={styles.colors.text} stroked>
               What I use
-            </Title>
+            </NavItem>
           </NavLink>
         </li>
         <li>
-          <NavLink href="/contact" color={styles.colors.text}>
-            <Title size={styles.titles.t1} color={styles.colors.text} stroked>
+          <NavLink to="/contact" onClick={() => setCloseMenu(true)}>
+            <NavItem size={styles.titles.t1} color={styles.colors.text} stroked>
               Contact
-            </Title>
+            </NavItem>
           </NavLink>
         </li>
       </NavLinks>
@@ -79,18 +91,22 @@ const MenuContainer = styled.div`
 
 const NavLinks = styled.ul`
   list-style: none;
+
+  & a {
+    text-decoration: none;
+    display: inline-block;
+  }
 `
 
-const NavLink = styled.a`
-  text-decoration: none;
-  display: inline-block;
+const NavItem = styled.h2`
+  font-size: ${props => props.size};
+  -webkit-text-stroke: ${props => props.stroked && `1px ${props.color}`};
+  color: ${props => (props.stroked ? 'transparent' : props.color)};
+  line-height: ${props => props.size};
+  transition: color 0.4s;
   margin-top: 20px;
 
-  & h2 {
-    transition: color 0.4s;
-  }
-
-  & h2:hover {
+  &:hover {
     color: ${props => props.color};
   }
 `

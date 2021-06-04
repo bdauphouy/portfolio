@@ -1,6 +1,9 @@
 import styled from 'styled-components'
+import { useHistory } from 'react-router-dom'
 
 const Navbar = ({ styles, menu, setMenu, setCloseMenu, closeMenu }) => {
+  const history = useHistory()
+
   return (
     <Nav padding={`${styles.paddings.p3} ${styles.paddings.p2}`}>
       <a href="/" style={{ textDecoration: 'none' }}>
@@ -10,19 +13,16 @@ const Navbar = ({ styles, menu, setMenu, setCloseMenu, closeMenu }) => {
           dauphouy
         </Name>
       </a>
-      <Button
-        size={styles.paragraphs.p1}
+
+      <Burger
+        active={!closeMenu}
         color={styles.colors.text}
         onClick={() =>
           !menu
-            ? (setMenu(true), setCloseMenu(false))
-            : (setCloseMenu(true),
-              setTimeout(() => {
-                setMenu(false)
-              }, 500))
-        }>
-        <Burger active={!closeMenu} color={styles.colors.text} />
-      </Button>
+            ? (setMenu(true), setCloseMenu(false), history.push('/'))
+            : setCloseMenu(true)
+        }
+      />
     </Nav>
   )
 }
@@ -42,16 +42,6 @@ const Name = styled.h1`
   color: ${props => props.color};
   font-size: ${props => props.size};
   font-weight: 500;
-`
-
-const Button = styled.button`
-  color: ${props => props.color};
-  font-size: ${props => props.size};
-  font-weight: 500;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  position: relative;
 `
 
 const Burger = styled.span`

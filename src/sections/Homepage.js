@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Title, Container, Stroked } from '../components/Components'
 
-const Homepage = ({ styles, palette, appear }) => {
+const Homepage = ({ styles, palette, mobile, appear }) => {
   return (
     <>
       <Container
@@ -22,7 +22,11 @@ const Homepage = ({ styles, palette, appear }) => {
           , a frontend developer.
         </Title>
       </Container>
-      <Projects>
+      <Projects
+        style={{
+          gridTemplateColumns:
+            mobile && 'repeat(auto-fill, minmax(300px, 1fr))',
+        }}>
         <a href="/">
           <Project background={palette.greens.g1}>
             <ProjectThumbnail src="./projects-thumbnails/fantashop.png" />
