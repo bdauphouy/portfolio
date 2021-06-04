@@ -1,31 +1,34 @@
 import styled from 'styled-components'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
+import useAnimation from '../hooks/useAnimation'
 
 const DownloadCV = ({ styles, tablet }) => {
   let [diameter, setDiameter] = useState(tablet ? 34 : 64)
 
+  const circle = useRef()
+
   useEffect(() => {
+    console.log(tablet)
+    window.addEventListener('mousemove', e => {
+      const { clientX, clientY } = e
+      const posX = tablet ? 0 : clientX / window.innerWidth - 0.5
+      const posY = tablet ? 0 : clientY / window.innerHeight - 0.5
+
+      circle.current.style.transform = `translate3d(${posX * 50}px, ${
+        posY * 50
+      }px, 0)`
+    })
     setDiameter(tablet ? 34 : 64)
   }, [tablet])
 
-  const handleOnMouseOver = () => {
-    const interval = setInterval(() => {
-      if (diameter >= 43) {
-        setDiameter(diameter--)
-      } else clearInterval(interval)
-    }, 5)
-  }
-
-  const handleOnMouseLeave = () => {
-    const interval = setInterval(() => {
-      if (diameter <= 64) {
-        setDiameter(diameter++)
-      } else clearInterval(interval)
-    }, 5)
-  }
+  const [handleOnMouseOver, handleOnMouseOut] = useAnimation(
+    diameter,
+    setDiameter,
+  )
 
   return (
     <Circle
+      ref={circle}
       padding={`${parseFloat(styles.paddings.p3) + 80 + 'px'} ${
         styles.paddings.p2
       }`}>
@@ -55,7 +58,7 @@ const DownloadCV = ({ styles, tablet }) => {
           src="./arrow-down.svg"
           alt="arrow-down"
           onMouseOver={() => !tablet && handleOnMouseOver()}
-          onMouseLeave={() => !tablet && handleOnMouseLeave()}
+          onMouseOut={() => !tablet && handleOnMouseOut()}
         />
       </a>
     </Circle>

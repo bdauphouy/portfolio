@@ -27,24 +27,24 @@ const Homepage = ({ styles, palette, mobile, appear }) => {
           gridTemplateColumns:
             mobile && 'repeat(auto-fill, minmax(300px, 1fr))',
         }}>
-        <a href="/">
+        <a href="https://fantashop.fr">
           <Project background={palette.greens.g1}>
-            <ProjectThumbnail src="./projects-thumbnails/fantashop.png" />
+            <ProjectThumbnail src="./projects-thumbnails/fantashop.webp" />
           </Project>
         </a>
         <a href="/">
           <Project background={palette.greens.g2}>
-            <ProjectThumbnail src="./projects-thumbnails/institut.png" />
+            <ProjectThumbnail src="./projects-thumbnails/institut.webp" />
           </Project>
         </a>
-        <a href="/">
+        <a href="https://bdph.me/benjamin-code/">
           <Project background={palette.greens.g3}>
-            <ProjectThumbnail src="./projects-thumbnails/benjamin-code.png" />
+            <ProjectThumbnail src="./projects-thumbnails/benjamin-code.webp" />
           </Project>
         </a>
-        <a href="/">
+        <a href="https://bdph.me/flexomatic">
           <Project background={palette.greens.g4}>
-            <ProjectThumbnail src="./projects-thumbnails/flexomatic.png" />
+            <ProjectThumbnail src="./projects-thumbnails/flexomatic.webp" />
           </Project>
         </a>
       </Projects>

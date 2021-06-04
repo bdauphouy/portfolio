@@ -1,7 +1,13 @@
 import { Paragraph } from '../components/Components'
-const Footer = ({ styles, palette, tablet }) => {
+const Footer = ({ styles, palette }) => {
   return (
-    <footer style={{ padding: `${styles.paddings.p3} 0` }}>
+    <footer
+      style={{
+        height: '100px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
       <Paragraph
         color={palette.grays.g1}
         size={styles.paragraphs.p1}

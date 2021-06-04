@@ -19,7 +19,7 @@ const Use = ({ styles }) => {
               HTML
             </Item>
             <Item color={styles.colors.text} size={styles.paragraphs.p1}>
-              CSS
+              SCSS
             </Item>
             <Item color={styles.colors.text} size={styles.paragraphs.p1}>
               Javascript
@@ -29,6 +29,9 @@ const Use = ({ styles }) => {
             </Item>
             <Item color={styles.colors.text} size={styles.paragraphs.p1}>
               Three.js
+            </Item>
+            <Item color={styles.colors.text} size={styles.paragraphs.p1}>
+              Git
             </Item>
           </List>
         </Column>
