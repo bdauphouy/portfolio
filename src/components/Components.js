@@ -57,7 +57,8 @@ const Column = styled.div`
 
 const Row = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  grid-gap: ${props => props.gap};
 `
 
 export { Title, Paragraph, Link, Stroked, Container, Column, Row }

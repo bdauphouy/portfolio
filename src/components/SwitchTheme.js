@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Paragraph, Row } from '../components/Components'
+import { Paragraph, Column } from '../components/Components'
 
 const SwitchTheme = ({ styles, setTheme, theme }) => {
   const handleChange = () => {
@@ -12,7 +12,7 @@ const SwitchTheme = ({ styles, setTheme, theme }) => {
       style={{
         right: styles.paddings.p2,
       }}>
-      <Row style={{ alignItems: 'center' }}>
+      <Column style={{ alignItems: 'center' }}>
         <Paragraph color={styles.colors.text} size={styles.paragraphs.p2}>
           {theme === 'dark' ? 'Dark' : 'Light'}
         </Paragraph>
@@ -24,7 +24,7 @@ const SwitchTheme = ({ styles, setTheme, theme }) => {
           style={{ marginTop: '5px' }}
         />
         <label htmlFor="switch" color={styles.colors.text}></label>
-      </Row>
+      </Column>
     </Input>
   )
 }

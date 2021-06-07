@@ -1,5 +1,6 @@
-import { Title, Container, Column, Link } from '../components/Components'
+import { Title, Container, Column } from '../components/Components'
 import { NavLink } from 'react-router-dom'
+import styled from 'styled-components'
 
 const Homepage = ({ styles, palette, mobile, appear }) => {
   return (
@@ -16,11 +17,7 @@ const Homepage = ({ styles, palette, mobile, appear }) => {
             Sorry, this page doesn't exist.
           </Title>
           <NavLink to="/" style={{ textDecoration: 'none' }}>
-            <Link
-              href="/"
-              size={styles.links.l1}
-              color={palette.greens.g5}
-              style={{ marginTop: '50px', display: 'inline-block' }}>
+            <Link size={styles.links.l1} color={palette.greens.g5}>
               Go to the homepage
             </Link>
           </NavLink>
@@ -29,5 +26,31 @@ const Homepage = ({ styles, palette, mobile, appear }) => {
     </>
   )
 }
+
+const Link = styled.span`
+  font-size: ${props => props.size};
+  color: ${props => props.color};
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  margin-top: 50px;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 3px;
+    background: ${props => props.color};
+    top: 50%;
+    left: -20px;
+    transform: translate(-50%, -50%);
+    transition: left 0.4s;
+  }
+
+  &:hover::before {
+    left: calc(100% + 20px);
+  }
+`
 
 export default Homepage

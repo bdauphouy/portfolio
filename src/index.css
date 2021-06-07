@@ -16,6 +16,7 @@ p,
 a,
 button,
 li,
-text {
+text,
+span {
   font-family: 'Gilroy', sans-serif
 }

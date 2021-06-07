@@ -1,4 +1,5 @@
 import { Paragraph } from '../components/Components'
+
 const Footer = ({ styles, palette }) => {
   return (
     <footer

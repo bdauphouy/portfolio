@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { Title, Container, Stroked } from '../components/Components'
+import { Link } from 'react-router-dom'
 
 const Homepage = ({ styles, palette, mobile, appear }) => {
   return (
@@ -27,26 +28,38 @@ const Homepage = ({ styles, palette, mobile, appear }) => {
           gridTemplateColumns:
             mobile && 'repeat(auto-fill, minmax(300px, 1fr))',
         }}>
-        <a href="https://fantashop.fr">
+        <Link to="/project/fantashop">
           <Project background={palette.greens.g1}>
-            <ProjectThumbnail src="./projects-thumbnails/fantashop.webp" />
+            <ProjectThumbnail
+              src="./projects-thumbnails/fantashop.webp"
+              alt="fantashop"
+            />
           </Project>
-        </a>
-        <a href="/">
+        </Link>
+        <Link to="/project/institut">
           <Project background={palette.greens.g2}>
-            <ProjectThumbnail src="./projects-thumbnails/institut.webp" />
+            <ProjectThumbnail
+              src="./projects-thumbnails/institut.webp"
+              alt="institut"
+            />
           </Project>
-        </a>
-        <a href="https://bdph.me/benjamin-code/">
+        </Link>
+        <Link to="/project/benjamin-code">
           <Project background={palette.greens.g3}>
-            <ProjectThumbnail src="./projects-thumbnails/benjamin-code.webp" />
+            <ProjectThumbnail
+              src="./projects-thumbnails/benjamin-code.webp"
+              alt="benjamin-code"
+            />
           </Project>
-        </a>
-        <a href="https://bdph.me/flexomatic">
+        </Link>
+        <Link to="/project/flexomatic">
           <Project background={palette.greens.g4}>
-            <ProjectThumbnail src="./projects-thumbnails/flexomatic.webp" />
+            <ProjectThumbnail
+              src="./projects-thumbnails/flexomatic.webp"
+              alt="flexomatic"
+            />
           </Project>
-        </a>
+        </Link>
       </Projects>
     </>
   )

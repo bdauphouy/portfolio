@@ -9,6 +9,7 @@ import Footer from './partials/Footer'
 import Loader from './partials/Loader'
 import PageNotFound from './sections/PageNotFound'
 import useLocalStorage from './hooks/useLocalStorage'
+import Project from './sections/Project'
 import { useState, useEffect } from 'react'
 import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 
@@ -115,7 +116,7 @@ const App = () => {
       <Navbar styles={styles} />
 
       <Switch>
-        <Route exact path={['/', '/about', '/use', '/contact']}>
+        <Route exact path="/">
           <DownloadCV styles={styles} tablet={tablet} />
 
           <Homepage
@@ -137,6 +138,14 @@ const App = () => {
             palette={palette}
             tablet={tablet}
             externalLinks={externalLinks}
+          />
+        </Route>
+        <Route path="/project/:id">
+          <Project
+            styles={styles}
+            palette={palette}
+            mobile={mobile}
+            appear={appear}
           />
         </Route>
         <Route>

@@ -8,8 +8,9 @@ const DownloadCV = ({ styles, tablet }) => {
   const circle = useRef()
 
   useEffect(() => {
-    console.log(tablet)
-    window.addEventListener('mousemove', e => {
+    setDiameter(tablet ? 34 : 64)
+
+    const moveCircle = e => {
       const { clientX, clientY } = e
       const posX = tablet ? 0 : clientX / window.innerWidth - 0.5
       const posY = tablet ? 0 : clientY / window.innerHeight - 0.5
@@ -17,8 +18,13 @@ const DownloadCV = ({ styles, tablet }) => {
       circle.current.style.transform = `translate3d(${posX * 50}px, ${
         posY * 50
       }px, 0)`
-    })
-    setDiameter(tablet ? 34 : 64)
+    }
+
+    const handleMouseMove = moveCircle
+
+    window.addEventListener('mousemove', handleMouseMove)
+
+    return () => window.removeEventListener('mousemove', handleMouseMove)
   }, [tablet])
 
   const [handleOnMouseOver, handleOnMouseOut] = useAnimation(
