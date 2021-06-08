@@ -5,6 +5,7 @@ const Title = styled.h2`
   -webkit-text-stroke: ${props => props.stroked && `1px ${props.color}`};
   color: ${props => (props.stroked ? 'transparent' : props.color)};
   line-height: ${props => props.size};
+  font-weight: 700;
 `
 
 const Paragraph = styled.p`

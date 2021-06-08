@@ -31,6 +31,7 @@ const Name = styled.h1`
   color: ${props => props.color};
   font-size: ${props => props.size};
   font-weight: 500;
+  line-height: ${props => `calc(${1.2 * parseFloat(props.size)}px)`};
 `
 
 export default Navbar

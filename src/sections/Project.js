@@ -61,16 +61,13 @@ const Project = ({ styles, palette, mobile, appear }) => {
           style={{ alignItems: 'flex-end', minHeight: '500px' }}>
           <Row>
             <Column>
-              <Title
-                className="appearLeft"
-                size={styles.titles.t2}
-                color={styles.colors.text}>
+              <Title size={styles.titles.t2} color={styles.colors.text}>
                 {projectContent.title}
               </Title>
               <Row gap="20px" style={{ marginTop: '20px' }}>
                 {projectContent.technologies.map(technology => {
                   return (
-                    <Technology color={palette.grays.g1}>
+                    <Technology color={palette.grays.g1} key={technology}>
                       {technology}
                     </Technology>
                   )
