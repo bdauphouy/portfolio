@@ -13,7 +13,7 @@ import { useState, useEffect } from 'react'
 import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 
 const App = () => {
-  const loadingPage = false
+  const loadingPage = true
 
   const [mobile, setMobile] = useState(false)
   const [tablet, setTablet] = useState(false)
