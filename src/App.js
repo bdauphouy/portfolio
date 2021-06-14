@@ -9,12 +9,11 @@ import Footer from './partials/Footer'
 import Loader from './partials/Loader'
 import PageNotFound from './sections/PageNotFound'
 import useLocalStorage from './hooks/useLocalStorage'
-import Project from './sections/Project'
 import { useState, useEffect } from 'react'
 import { HashRouter as Router, Switch, Route } from 'react-router-dom'
 
 const App = () => {
-  const loadingPage = true
+  const loadingPage = false
 
   const [mobile, setMobile] = useState(false)
   const [tablet, setTablet] = useState(false)
@@ -106,6 +105,10 @@ const App = () => {
   }, [load, animate])
 
   useEffect(() => {
+    document.body.style.overflow = loader ? 'hidden' : 'auto'
+  }, [loader])
+
+  useEffect(() => {
     document.body.style.background = styles.colors.background
   }, [styles.colors.background])
 
@@ -114,45 +117,39 @@ const App = () => {
       {loader && <Loader styles={styles} load={load} animate={animate} />}
       <SwitchTheme styles={styles} theme={theme} setTheme={setTheme} />
       <Navbar styles={styles} />
+      <Route
+        render={({ location }) => (
+          <Switch location={location} key={location.pathname}>
+            <Route exact path="/">
+              <DownloadCV styles={styles} tablet={tablet} />
+              <Homepage
+                styles={styles}
+                palette={palette}
+                mobile={mobile}
+                appear={appear}
+              />
+              <About
+                styles={styles}
+                palette={palette}
+                mobile={mobile}
+                tablet={tablet}
+                appear={appear}
+              />
+              <Use styles={styles} tablet={tablet} />
+              <Contact
+                styles={styles}
+                palette={palette}
+                tablet={tablet}
+                externalLinks={externalLinks}
+              />
+            </Route>
 
-      <Switch>
-        <Route exact path="/">
-          <DownloadCV styles={styles} tablet={tablet} />
-
-          <Homepage
-            styles={styles}
-            palette={palette}
-            mobile={mobile}
-            appear={appear}
-          />
-          <About
-            styles={styles}
-            palette={palette}
-            mobile={mobile}
-            tablet={tablet}
-            appear={appear}
-          />
-          <Use styles={styles} tablet={tablet} />
-          <Contact
-            styles={styles}
-            palette={palette}
-            tablet={tablet}
-            externalLinks={externalLinks}
-          />
-        </Route>
-        <Route path="/project/:id">
-          <Project
-            styles={styles}
-            palette={palette}
-            mobile={mobile}
-            appear={appear}
-          />
-        </Route>
-        <Route>
-          <PageNotFound styles={styles} palette={palette} />
-        </Route>
-      </Switch>
-
+            <Route>
+              <PageNotFound styles={styles} palette={palette} />
+            </Route>
+          </Switch>
+        )}
+      />
       <Footer styles={styles} palette={palette} tablet={tablet} />
     </Router>
   )

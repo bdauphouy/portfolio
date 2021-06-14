@@ -15,9 +15,10 @@ const DownloadCV = ({ styles, tablet }) => {
       const posX = tablet ? 0 : clientX / window.innerWidth - 0.5
       const posY = tablet ? 0 : clientY / window.innerHeight - 0.5
 
-      circle.current.style.transform = `translate3d(${posX * 50}px, ${
-        posY * 50
-      }px, 0)`
+      if (circle.current)
+        circle.current.style.transform = `translate3d(${posX * 50}px, ${
+          posY * 50
+        }px, 0)`
     }
 
     const handleMouseMove = moveCircle
@@ -34,6 +35,7 @@ const DownloadCV = ({ styles, tablet }) => {
 
   return (
     <Circle
+      tablet={tablet}
       ref={circle}
       padding={`${parseFloat(styles.paddings.p3) + 80 + 'px'} ${
         styles.paddings.p2
@@ -72,7 +74,7 @@ const DownloadCV = ({ styles, tablet }) => {
 }
 
 const Circle = styled.div`
-  position: fixed;
+  position: ${props => (props.tablet ? 'fixed' : 'absolute')};
   z-index: 97;
   left: 80%;
   top: 30%;

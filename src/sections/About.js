@@ -7,103 +7,101 @@ import {
   Title,
 } from '../components/Components'
 
-const About = ({ styles, palette, mobile, tablet, appear }) => {
+const About = ({ styles, palette, mobile, tablet }) => {
   return (
-    <>
-      <Container
-        id="about"
-        padding={`${styles.paddings.p4} ${styles.paddings.p1}`}
-        style={{
-          gridGap: !tablet ? '150px' : '80px',
-          flexDirection: tablet && 'column',
-        }}>
-        <Column style={{ flex: 1.5 }}>
+    <Container
+      id="about"
+      padding={`${styles.paddings.p4} ${styles.paddings.p1}`}
+      style={{
+        gridGap: !tablet ? '150px' : '80px',
+        flexDirection: tablet && 'column',
+      }}>
+      <Column style={{ flex: 1.5 }}>
+        <Paragraph
+          color={styles.colors.text}
+          size={styles.paragraphs.p1}
+          style={{ marginTop: '20px' }}>
+          My name is Baptiste Dauphouy, I am french developer, 17 years old, and
+          I live near Rennes in France.
+        </Paragraph>
+        <Paragraph
+          color={styles.colors.text}
+          size={styles.paragraphs.p1}
+          style={{ marginTop: '20px' }}>
+          I have been a frontend developer for 2 years and today I would like to
+          put in application all the knowledges I acquired in these couple of
+          years.
+        </Paragraph>
+        <Paragraph
+          color={styles.colors.text}
+          size={styles.paragraphs.p1}
+          style={{ marginTop: '20px' }}>
+          So, if you want to work with me, you will find below, the ways to
+          contact me.
+        </Paragraph>
+        <Link
+          href="/cv.pdf"
+          download
+          size={styles.links.l1}
+          color={palette.greens.g5}
+          style={{ marginTop: '50px' }}>
+          Download my CV
+        </Link>
+      </Column>
+      <Column style={{ flex: 1, minWidth: !tablet && '350px' }}>
+        <Title size={styles.titles.t3} stroked color={styles.colors.text}>
+          Curriculum
+        </Title>
+        <Step style={{ marginTop: '50px' }}>
           <Paragraph
-            color={styles.colors.text}
+            color={palette.grays.g1}
             size={styles.paragraphs.p1}
-            style={{ marginTop: '20px' }}>
-            My name is Baptiste Dauphouy, I am french developer, 17 years old,
-            and I live near Rennes in France.
+            style={{ whiteSpace: 'nowrap' }}>
+            2021-2024
           </Paragraph>
+          <Column style={{ marginLeft: mobile ? '30px' : '80px' }}>
+            <Paragraph color={styles.colors.text} size={styles.paragraphs.p1}>
+              HETIC
+            </Paragraph>
+            <Paragraph color={palette.grays.g1} size={styles.paragraphs.p1}>
+              Montreuil, France
+            </Paragraph>
+          </Column>
+        </Step>
+        <Step>
           <Paragraph
-            color={styles.colors.text}
+            color={palette.grays.g1}
             size={styles.paragraphs.p1}
-            style={{ marginTop: '20px' }}>
-            I have been a frontend developer for 2 years and today I would like
-            to put in application all the knowledges I acquired in these couple
-            of years.
+            style={{ whiteSpace: 'nowrap' }}>
+            2018-2021
           </Paragraph>
+          <Column style={{ marginLeft: mobile ? '30px' : '80px' }}>
+            <Paragraph color={styles.colors.text} size={styles.paragraphs.p1}>
+              Lycée Saint-Sauveur
+            </Paragraph>
+            <Paragraph color={palette.grays.g1} size={styles.paragraphs.p1}>
+              Redon, France
+            </Paragraph>
+          </Column>
+        </Step>
+        <Step>
           <Paragraph
-            color={styles.colors.text}
+            color={palette.grays.g1}
             size={styles.paragraphs.p1}
-            style={{ marginTop: '20px' }}>
-            So, if you want to work with me, you will find below, the ways to
-            contact me.
+            style={{ whiteSpace: 'nowrap' }}>
+            2014-2018
           </Paragraph>
-          <Link
-            href="/cv.pdf"
-            download
-            size={styles.links.l1}
-            color={palette.greens.g5}
-            style={{ marginTop: '50px' }}>
-            Download my CV
-          </Link>
-        </Column>
-        <Column style={{ flex: 1, minWidth: !tablet && '350px' }}>
-          <Title size={styles.titles.t3} stroked color={styles.colors.text}>
-            Curriculum
-          </Title>
-          <Step style={{ marginTop: '50px' }}>
-            <Paragraph
-              color={palette.grays.g1}
-              size={styles.paragraphs.p1}
-              style={{ whiteSpace: 'nowrap' }}>
-              2021-2024
+          <Column style={{ marginLeft: mobile ? '30px' : '80px' }}>
+            <Paragraph color={styles.colors.text} size={styles.paragraphs.p1}>
+              Collège Saint-Martin
             </Paragraph>
-            <Column style={{ marginLeft: mobile ? '30px' : '80px' }}>
-              <Paragraph color={styles.colors.text} size={styles.paragraphs.p1}>
-                HETIC
-              </Paragraph>
-              <Paragraph color={palette.grays.g1} size={styles.paragraphs.p1}>
-                Montreuil, France
-              </Paragraph>
-            </Column>
-          </Step>
-          <Step>
-            <Paragraph
-              color={palette.grays.g1}
-              size={styles.paragraphs.p1}
-              style={{ whiteSpace: 'nowrap' }}>
-              2018-2021
+            <Paragraph color={palette.grays.g1} size={styles.paragraphs.p1}>
+              Pontchâteau, France
             </Paragraph>
-            <Column style={{ marginLeft: mobile ? '30px' : '80px' }}>
-              <Paragraph color={styles.colors.text} size={styles.paragraphs.p1}>
-                Lycée Saint-Sauveur
-              </Paragraph>
-              <Paragraph color={palette.grays.g1} size={styles.paragraphs.p1}>
-                Redon, France
-              </Paragraph>
-            </Column>
-          </Step>
-          <Step>
-            <Paragraph
-              color={palette.grays.g1}
-              size={styles.paragraphs.p1}
-              style={{ whiteSpace: 'nowrap' }}>
-              2014-2018
-            </Paragraph>
-            <Column style={{ marginLeft: mobile ? '30px' : '80px' }}>
-              <Paragraph color={styles.colors.text} size={styles.paragraphs.p1}>
-                Collège Saint-Martin
-              </Paragraph>
-              <Paragraph color={palette.grays.g1} size={styles.paragraphs.p1}>
-                Pontchâteau, France
-              </Paragraph>
-            </Column>
-          </Step>
-        </Column>
-      </Container>
-    </>
+          </Column>
+        </Step>
+      </Column>
+    </Container>
   )
 }
 

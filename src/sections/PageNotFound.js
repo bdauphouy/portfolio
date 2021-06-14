@@ -2,11 +2,11 @@ import { Title, Container, Column } from '../components/Components'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 
-const Homepage = ({ styles, palette, mobile, appear }) => {
+const PageNotFound = ({ styles, palette }) => {
   return (
     <>
       <Container
-        id="home"
+        id="pagenotfound"
         padding={`${styles.paddings.p4} ${styles.paddings.p1}`}
         style={{ alignItems: 'center', minHeight: 'calc(100vh - 100px)' }}>
         <Column>
@@ -53,4 +53,4 @@ const Link = styled.span`
   }
 `
 
-export default Homepage
+export default PageNotFound
