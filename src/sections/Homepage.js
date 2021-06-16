@@ -9,7 +9,11 @@ const Homepage = ({ styles, palette, mobile }) => {
         id="home"
         padding={`${styles.paddings.p4} ${styles.paddings.p1}`}
         style={{ alignItems: 'flex-end', minHeight: '500px' }}>
-        <Title size={styles.titles.t2} color={styles.colors.text}>
+        <Title
+          data-home-text
+          data-gsap-text
+          size={styles.titles.t2}
+          color={styles.colors.text}>
           Hello, I am
           <Stroked
             size={styles.titles.t2}
@@ -33,7 +37,7 @@ const Homepage = ({ styles, palette, mobile }) => {
 
         <ProjectThumbnail palette={palette} title="benjamin-code" />
 
-        <ProjectThumbnail palette={palette} title="flexomatic" />
+        <ProjectThumbnail data-animate palette={palette} title="flexomatic" />
       </Projects>
     </>
   )

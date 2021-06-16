@@ -11,6 +11,7 @@ import PageNotFound from './sections/PageNotFound'
 import useLocalStorage from './hooks/useLocalStorage'
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import useGSAP from './hooks/useGSAP'
 
 const App = () => {
   const loadingPage = true
@@ -109,8 +110,14 @@ const App = () => {
   }, [loader])
 
   useEffect(() => {
+    console.log(animate)
+  }, [animate])
+
+  useEffect(() => {
     document.body.style.background = styles.colors.background
   }, [styles.colors.background])
+
+  useGSAP(animate)
 
   return (
     <Router basename="/">

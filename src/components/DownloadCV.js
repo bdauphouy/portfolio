@@ -40,7 +40,10 @@ const DownloadCV = ({ styles, tablet }) => {
       padding={`${parseFloat(styles.paddings.p3) + 80 + 'px'} ${
         styles.paddings.p2
       }`}>
-      <SVG width={tablet ? 90 : 170} height={tablet ? 90 : 170}>
+      <SVG
+        width={tablet ? 90 : 170}
+        height={tablet ? 90 : 170}
+        data-fixed-element>
         <path
           id="text-diameter"
           d={`M ${diameter},0 A ${diameter},${diameter} 0 0 1 -${diameter},0 A ${diameter},${diameter} 0 0 1 ${diameter},0`}
@@ -63,6 +66,7 @@ const DownloadCV = ({ styles, tablet }) => {
       </SVG>
       <a href="./cv.pdf" download style={{ display: 'inline-block' }}>
         <Arrow
+          data-fixed-element
           src="./arrow-down.svg"
           alt="arrow-down"
           onMouseOver={() => !tablet && handleOnMouseOver()}

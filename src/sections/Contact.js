@@ -17,40 +17,59 @@ const Contact = ({ styles, palette, tablet, externalLinks }) => {
         flexDirection: tablet && 'column',
       }}>
       <Column style={{ flex: 1 }}>
-        <Paragraph color={styles.colors.text} size={styles.paragraphs.p1}>
+        <Paragraph
+          data-gsap-text
+          data-contact-text
+          color={styles.colors.text}
+          size={styles.paragraphs.p1}>
           For any inqueries about me, you can contact me using my email, phone
           number or social networks.
         </Paragraph>
       </Column>
       <Column style={{ flex: 3 }}>
-        <Title size={styles.titles.t2} stroked color={styles.colors.text}>
+        <Title
+          data-gsap-text
+          data-contact-text
+          size={styles.titles.t2}
+          stroked
+          color={styles.colors.text}>
           Contact me
         </Title>
-        <Way border={palette.grays.g2}>
+        <Way border={palette.grays.g2} data-contact-border>
           <Title
             size={styles.titles.t3}
             color={styles.colors.text}
             style={{
               wordBreak: 'break-all',
-            }}>
+            }}
+            data-gsap-text
+            data-contact-text>
             bdauphouy[at]gmail.com
           </Title>
           <Paragraph
             color={palette.grays.g1}
             size={styles.paragraphs.p1}
-            style={{ marginTop: '10px' }}>
+            style={{ marginTop: '10px' }}
+            data-gsap-text
+            data-contact-text>
             Do not hesitate to contact me for any information about me or my
             work.
           </Paragraph>
         </Way>
-        <Way border={palette.grays.g2}>
-          <Title size={styles.titles.t3} color={styles.colors.text}>
+        <Way border={palette.grays.g2} data-contact-border>
+          <Title
+            data-gsap-text
+            data-contact-text
+            size={styles.titles.t3}
+            color={styles.colors.text}>
             +33621629748
           </Title>
           <Paragraph
             color={palette.grays.g1}
             size={styles.paragraphs.p1}
-            style={{ marginTop: '10px' }}>
+            style={{ marginTop: '10px' }}
+            data-gsap-text
+            data-contact-text>
             If you prefer to hear my voice, you can call me.
           </Paragraph>
         </Way>
@@ -59,7 +78,9 @@ const Contact = ({ styles, palette, tablet, externalLinks }) => {
             <Link
               href={externalLinks.twitter}
               color={palette.greens.g5}
-              size={styles.links.l1}>
+              size={styles.links.l1}
+              data-gsap-text
+              data-contact-text>
               twitter
             </Link>
           </li>
@@ -67,7 +88,9 @@ const Contact = ({ styles, palette, tablet, externalLinks }) => {
             <Link
               href={externalLinks.discord}
               color={palette.greens.g5}
-              size={styles.links.l1}>
+              size={styles.links.l1}
+              data-gsap-text
+              data-contact-text>
               discord
             </Link>
           </li>
@@ -75,7 +98,9 @@ const Contact = ({ styles, palette, tablet, externalLinks }) => {
             <Link
               href={externalLinks.github}
               color={palette.greens.g5}
-              size={styles.links.l1}>
+              size={styles.links.l1}
+              data-gsap-text
+              data-contact-text>
               github
             </Link>
           </li>

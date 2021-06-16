@@ -8,26 +8,55 @@ const Use = ({ styles }) => {
   return (
     <Container id="use" padding={`${styles.paddings.p4} ${styles.paddings.p1}`}>
       <Column style={{ width: '100%', alignItems: 'center' }}>
-        <Title size={styles.titles.t3} stroked color={styles.colors.text}>
+        <Title
+          data-use-text
+          data-gsap-text
+          size={styles.titles.t3}
+          stroked
+          color={styles.colors.text}>
           What I use
         </Title>
         <List greaterThan486={greaterThan486}>
-          <Item color={styles.colors.text} size={styles.paragraphs.p1}>
+          <Item
+            data-use-text
+            data-gsap-text
+            color={styles.colors.text}
+            size={styles.paragraphs.p1}>
             HTML
           </Item>
-          <Item color={styles.colors.text} size={styles.paragraphs.p1}>
+          <Item
+            data-use-text
+            data-gsap-text
+            color={styles.colors.text}
+            size={styles.paragraphs.p1}>
             SCSS
           </Item>
-          <Item color={styles.colors.text} size={styles.paragraphs.p1}>
+          <Item
+            data-use-text
+            data-gsap-text
+            color={styles.colors.text}
+            size={styles.paragraphs.p1}>
             Javascript
           </Item>
-          <Item color={styles.colors.text} size={styles.paragraphs.p1}>
+          <Item
+            data-use-text
+            data-gsap-text
+            color={styles.colors.text}
+            size={styles.paragraphs.p1}>
             React
           </Item>
-          <Item color={styles.colors.text} size={styles.paragraphs.p1}>
+          <Item
+            data-use-text
+            data-gsap-text
+            color={styles.colors.text}
+            size={styles.paragraphs.p1}>
             Three.js
           </Item>
-          <Item color={styles.colors.text} size={styles.paragraphs.p1}>
+          <Item
+            data-use-text
+            data-gsap-text
+            color={styles.colors.text}
+            size={styles.paragraphs.p1}>
             Git
           </Item>
         </List>

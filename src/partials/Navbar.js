@@ -3,9 +3,13 @@ import { NavLink } from 'react-router-dom'
 
 const Navbar = ({ styles }) => {
   return (
-    <Nav padding={styles.paddings.p2}>
+    <Nav id="nav" padding={styles.paddings.p2}>
       <NavLink to="/" style={{ textDecoration: 'none' }}>
-        <Name size={styles.paragraphs.p1} color={styles.colors.text}>
+        <Name
+          data-nav-text
+          data-gsap-text
+          size={styles.paragraphs.p1}
+          color={styles.colors.text}>
           baptiste
           <br />
           dauphouy

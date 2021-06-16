@@ -10,6 +10,8 @@ const Footer = ({ styles, palette }) => {
         justifyContent: 'center',
       }}>
       <Paragraph
+        data-gsap-text
+        data-contact-text
         color={palette.grays.g1}
         size={styles.paragraphs.p1}
         style={{

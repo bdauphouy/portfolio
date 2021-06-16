@@ -11,7 +11,8 @@ const SwitchTheme = ({ styles, setTheme, theme }) => {
       color={styles.colors.text}
       style={{
         right: styles.paddings.p2,
-      }}>
+      }}
+      data-fixed-element>
       <Column style={{ alignItems: 'center' }}>
         <Paragraph color={styles.colors.text} size={styles.paragraphs.p2}>
           {theme === 'dark' ? 'Dark' : 'Light'}
