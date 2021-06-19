@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 import { useState, useEffect, useRef } from 'react'
 import useAnimation from '../hooks/useAnimation'
+import useResolutionIsGreaterThan from '../hooks/useResolutionIsGreaterThan'
 
 const DownloadCV = ({ styles, tablet }) => {
+  const greaterThan = useResolutionIsGreaterThan(1500)
+
   let [diameter, setDiameter] = useState(tablet ? 34 : 64)
 
   const circle = useRef()
@@ -39,7 +42,8 @@ const DownloadCV = ({ styles, tablet }) => {
       ref={circle}
       padding={`${parseFloat(styles.paddings.p3) + 80 + 'px'} ${
         styles.paddings.p2
-      }`}>
+      }`}
+      greaterThan={greaterThan}>
       <SVG
         width={tablet ? 90 : 170}
         height={tablet ? 90 : 170}
@@ -80,8 +84,8 @@ const DownloadCV = ({ styles, tablet }) => {
 const Circle = styled.div`
   position: ${props => (props.tablet ? 'fixed' : 'absolute')};
   z-index: 97;
-  left: 80%;
-  top: 30%;
+  right: ${props => (props.greaterThan ? '10%' : '5%')};
+  top: ${props => (props.greaterThan ? '30%' : '5%')};
   height: 170px;
 
   @media (max-width: 1024px) {

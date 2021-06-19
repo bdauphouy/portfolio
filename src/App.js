@@ -110,10 +110,6 @@ const App = () => {
   }, [loader])
 
   useEffect(() => {
-    console.log(animate)
-  }, [animate])
-
-  useEffect(() => {
     document.body.style.background = styles.colors.background
   }, [styles.colors.background])
 

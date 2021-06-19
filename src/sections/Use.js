@@ -3,7 +3,7 @@ import { Container, Title, Column } from '../components/Components'
 import useResolutionIsGreaterThan from '../hooks/useResolutionIsGreaterThan'
 
 const Use = ({ styles }) => {
-  const greaterThan486 = useResolutionIsGreaterThan(650)
+  const greaterThan = useResolutionIsGreaterThan(650)
 
   return (
     <Container id="use" padding={`${styles.paddings.p4} ${styles.paddings.p1}`}>
@@ -16,7 +16,7 @@ const Use = ({ styles }) => {
           color={styles.colors.text}>
           What I use
         </Title>
-        <List greaterThan486={greaterThan486}>
+        <List greaterThan={greaterThan}>
           <Item
             data-use-text
             data-gsap-text
@@ -70,8 +70,7 @@ const List = styled.ul`
   margin-top: 50px;
   list-style: none;
   flex-wrap: wrap;
-  justify-content: ${props =>
-    props.greaterThan486 ? 'space-between' : 'center'};
+  justify-content: ${props => (props.greaterThan ? 'space-between' : 'center')};
   width: 100%;
   grid-gap: 50px;
 `

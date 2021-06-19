@@ -18,7 +18,6 @@ const useGSAP = animate => {
   useEffect(() => {
     const gsapTextElements = document.querySelectorAll('[data-gsap-text]')
     gsapTextElements.forEach(element => {
-      console.log(element)
       const wrapper = document.createElement('span')
       wrapper.style.overflow = 'hidden'
       element.parentNode.insertBefore(wrapper, element)
