@@ -7,7 +7,8 @@ const Cursor = ({ styles, tablet }) => {
 
   useEffect(() => {
     window.addEventListener('mousemove', e => {
-      cursor.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`
+      if (cursor.current)
+        cursor.current.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0)`
 
       if (e.target.getAttribute('data-cursor')) {
         setSize(50)
