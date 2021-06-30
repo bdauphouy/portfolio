@@ -71,6 +71,7 @@ const DownloadCV = ({ styles, tablet }) => {
       <a href="./cv.pdf" download style={{ display: 'inline-block' }}>
         <Arrow
           data-fixed-element
+          data-cursor
           src="./arrow-down.svg"
           alt="arrow-down"
           onMouseOver={() => !tablet && handleOnMouseOver()}

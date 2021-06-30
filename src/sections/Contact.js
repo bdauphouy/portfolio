@@ -80,6 +80,7 @@ const Contact = ({ styles, palette, tablet, externalLinks }) => {
               color={palette.greens.g5}
               size={styles.links.l1}
               data-gsap-text
+              data-cursor
               data-contact-text>
               twitter
             </Link>
@@ -90,6 +91,7 @@ const Contact = ({ styles, palette, tablet, externalLinks }) => {
               color={palette.greens.g5}
               size={styles.links.l1}
               data-gsap-text
+              data-cursor
               data-contact-text>
               discord
             </Link>
@@ -100,6 +102,7 @@ const Contact = ({ styles, palette, tablet, externalLinks }) => {
               color={palette.greens.g5}
               size={styles.links.l1}
               data-gsap-text
+              data-cursor
               data-contact-text>
               github
             </Link>

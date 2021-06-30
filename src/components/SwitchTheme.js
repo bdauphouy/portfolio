@@ -24,7 +24,7 @@ const SwitchTheme = ({ styles, setTheme, theme }) => {
           checked={theme === 'light' && true}
           style={{ marginTop: '5px' }}
         />
-        <label htmlFor="switch" color={styles.colors.text}></label>
+        <label htmlFor="switch" color={styles.colors.text} data-cursor></label>
       </Column>
     </Input>
   )
@@ -46,7 +46,6 @@ const Input = styled.div`
     width: 50px;
     height: 26px;
     display: block;
-    cursor: pointer;
     border-radius: 100px;
     position: relative;
     transition: background 0.4s;

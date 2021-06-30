@@ -12,12 +12,13 @@ import useLocalStorage from './hooks/useLocalStorage'
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import useGSAP from './hooks/useGSAP'
+import Cursor from './components/Cursor'
 
 const App = () => {
   const loadingPage = true
 
   const [mobile, setMobile] = useState(false)
-  const [tablet, setTablet] = useState(false)
+  const [tablet, setTablet] = useState(true)
   const [load, setLoad] = useState(loadingPage ? false : true)
   const [loader, setLoader] = useState(loadingPage ? true : false)
   const [appear, setAppear] = useState(loadingPage ? false : true)
@@ -89,15 +90,14 @@ const App = () => {
       isMobile() ? setMobile(true) : setMobile(false)
       isTablet() ? setTablet(true) : setTablet(false)
     })
-
-    isMobile() ? setMobile(true) : setMobile(false)
-    isTablet() ? setTablet(true) : setTablet(false)
-
     window.addEventListener('load', () => setLoad(true))
 
     setTimeout(() => {
       setAnimate(false)
     }, 3000)
+
+    isMobile() ? setMobile(true) : setMobile(false)
+    isTablet() ? setTablet(true) : setTablet(false)
   }, [])
 
   useEffect(() => {
@@ -119,6 +119,7 @@ const App = () => {
     <Router basename="/">
       {loader && <Loader styles={styles} load={load} animate={animate} />}
       <SwitchTheme styles={styles} theme={theme} setTheme={setTheme} />
+      {!tablet && <Cursor theme={theme} styles={styles} tablet={tablet} />}
       <Navbar styles={styles} />
       <Route
         render={({ location }) => (

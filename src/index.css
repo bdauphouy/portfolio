@@ -12,3 +12,11 @@
 body {
   transition: background 0.4s;
 }
+
+@media (min-width: 1024px) {
+  html,
+  a,
+  label {
+    cursor: none;
+  }
+}

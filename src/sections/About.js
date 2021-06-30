@@ -23,8 +23,8 @@ const About = ({ styles, palette, mobile, tablet }) => {
           style={{ marginTop: '20px' }}
           data-about-text
           data-gsap-text>
-          My name is Baptiste Dauphouy, I am french developer, 17 years old, and
-          I live near Rennes in France.
+          My name is Baptiste Dauphouy, I am a french developer, 17 years old,
+          and I live near Rennes in France.
         </Paragraph>
         <Paragraph
           color={styles.colors.text}
@@ -48,6 +48,7 @@ const About = ({ styles, palette, mobile, tablet }) => {
         <Link
           href="/cv.pdf"
           download
+          data-cursor
           size={styles.links.l1}
           color={palette.greens.g5}
           style={{ marginTop: '50px' }}
