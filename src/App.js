@@ -7,10 +7,14 @@ import DownloadCV from './components/DownloadCV'
 import SwitchTheme from './components/SwitchTheme'
 import Footer from './partials/Footer'
 import Loader from './partials/Loader'
-import PageNotFound from './sections/PageNotFound'
 import useLocalStorage from './hooks/useLocalStorage'
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect,
+} from 'react-router-dom'
 import useGSAP from './hooks/useGSAP'
 import Cursor from './components/Cursor'
 
@@ -149,7 +153,7 @@ const App = () => {
             </Route>
 
             <Route>
-              <PageNotFound styles={styles} palette={palette} />
+              <Redirect path="/" />
             </Route>
           </Switch>
         )}
