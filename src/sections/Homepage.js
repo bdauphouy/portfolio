@@ -1,8 +1,11 @@
 import styled from 'styled-components'
 import { Title, Container, Stroked } from '../components/Components'
 import ProjectThumbnail from '../components/ProjectThumbnail'
+import useGSAP from '../hooks/useGSAP'
 
 const Homepage = ({ styles, palette, mobile }) => {
+  useGSAP()
+
   return (
     <>
       <Container

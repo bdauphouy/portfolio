@@ -15,11 +15,10 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom'
-import useGSAP from './hooks/useGSAP'
 import Cursor from './components/Cursor'
 
 const App = () => {
-  const loadingPage = true
+  const loadingPage = false
 
   const [mobile, setMobile] = useState(false)
   const [tablet, setTablet] = useState(true)
@@ -117,8 +116,6 @@ const App = () => {
     document.body.style.background = styles.colors.background
   }, [styles.colors.background])
 
-  useGSAP(animate)
-
   return (
     <Router basename="/">
       {loader && <Loader styles={styles} load={load} animate={animate} />}
@@ -153,7 +150,7 @@ const App = () => {
             </Route>
 
             <Route>
-              <Redirect path="/" />
+              <Redirect to="/" />
             </Route>
           </Switch>
         )}

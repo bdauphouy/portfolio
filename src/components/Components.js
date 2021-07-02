@@ -12,6 +12,7 @@ const Paragraph = styled.p`
   font-size: ${props => props.size};
   color: ${props => props.color};
   font-weight: 500;
+  display: block;
   line-height: ${props => `calc(${1.5 * parseFloat(props.size)}px)`};
 `
 

@@ -104,7 +104,7 @@ const useGSAP = animate => {
       })
       contactTL.from('[data-contact-text]', textAppear, '-=1.5')
     }
-  }, [animate, textAppear, markers])
+  }, [])
 }
 
 export default useGSAP

@@ -6,8 +6,11 @@ import {
   Link,
   Title,
 } from '../components/Components'
+import useResolutionIsGreaterThan from '../hooks/useResolutionIsGreaterThan'
 
 const About = ({ styles, palette, mobile, tablet }) => {
+  const greaterThan450 = useResolutionIsGreaterThan(450)
+
   return (
     <Container
       id="about"
@@ -73,7 +76,7 @@ const About = ({ styles, palette, mobile, tablet }) => {
             data-gsap-text>
             2021-2024
           </Paragraph>
-          <Column style={{ marginLeft: mobile ? '30px' : '80px' }}>
+          <Column style={{ marginLeft: greaterThan450 ? 80 : 0 }}>
             <Paragraph
               data-about-text
               data-gsap-text
@@ -99,7 +102,7 @@ const About = ({ styles, palette, mobile, tablet }) => {
             data-gsap-text>
             2018-2021
           </Paragraph>
-          <Column style={{ marginLeft: mobile ? '30px' : '80px' }}>
+          <Column style={{ marginLeft: greaterThan450 ? 80 : 0 }}>
             <Paragraph
               data-about-text
               data-gsap-text
@@ -125,7 +128,7 @@ const About = ({ styles, palette, mobile, tablet }) => {
             data-gsap-text>
             2014-2018
           </Paragraph>
-          <Column style={{ marginLeft: mobile ? '30px' : '80px' }}>
+          <Column style={{ marginLeft: greaterThan450 ? 80 : 0 }}>
             <Paragraph
               data-about-text
               data-gsap-text
@@ -151,6 +154,10 @@ const Step = styled.div`
   display: flex;
   margin-top: 30px;
   width: 100%;
+
+  @media (max-width: 450px) {
+    flex-direction: column;
+  }
 `
 
 export default About
