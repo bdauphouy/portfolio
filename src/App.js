@@ -18,7 +18,7 @@ import {
 import Cursor from './components/Cursor'
 
 const App = () => {
-  const loadingPage = false
+  const loadingPage = true
 
   const [mobile, setMobile] = useState(false)
   const [tablet, setTablet] = useState(true)
