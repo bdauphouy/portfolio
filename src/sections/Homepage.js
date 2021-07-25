@@ -34,13 +34,18 @@ const Homepage = ({ styles, palette, mobile }) => {
             ? 'repeat(auto-fill, minmax(300px, 1fr))'
             : 'repeat(auto-fill, minmax(400px, 1fr))',
         }}>
-        <ProjectThumbnail palette={palette} title="fantashop" />
-
-        <ProjectThumbnail palette={palette} title="institut" />
-
-        <ProjectThumbnail palette={palette} title="benjamin-code" />
-
-        <ProjectThumbnail data-animate palette={palette} title="flexomatic" />
+        <a href="https://fantashop.fr">
+          <ProjectThumbnail palette={palette} title="fantashop" />
+        </a>
+        <a href="https://github.com/baptistedph/institut-bien-etre-griottines">
+          <ProjectThumbnail palette={palette} title="institut" />
+        </a>
+        <a href="https://benjamin-code.bdph.me">
+          <ProjectThumbnail palette={palette} title="benjamin-code" />
+        </a>
+        <a href="https://baptiste.tech/flexomatic">
+          <ProjectThumbnail palette={palette} title="flexomatic" />
+        </a>
       </Projects>
     </>
   )
