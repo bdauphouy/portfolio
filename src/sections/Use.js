@@ -50,6 +50,20 @@ const Use = ({ styles }) => {
             data-gsap-text
             color={styles.colors.text}
             size={styles.paragraphs.p1}>
+            React Native
+          </Item>
+          <Item
+            data-use-text
+            data-gsap-text
+            color={styles.colors.text}
+            size={styles.paragraphs.p1}>
+            Vue
+          </Item>
+          <Item
+            data-use-text
+            data-gsap-text
+            color={styles.colors.text}
+            size={styles.paragraphs.p1}>
             Three.js
           </Item>
           <Item
