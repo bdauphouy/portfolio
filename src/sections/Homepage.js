@@ -43,8 +43,20 @@ const Homepage = ({ styles, palette, mobile }) => {
         <a href="https://benjamin-code.bdph.me">
           <ProjectThumbnail palette={palette} title="benjamin-code" />
         </a>
+        <a href="https://baptiste.tech/vue-countries-app">
+          <ProjectThumbnail palette={palette} title="vue-countries-app" />
+        </a>
+        <a href="https://baptiste.tech/azura">
+          <ProjectThumbnail palette={palette} title="azura" />
+        </a>
         <a href="https://baptiste.tech/flexomatic">
           <ProjectThumbnail palette={palette} title="flexomatic" />
+        </a>
+        <a href="https://github.com/baptistedph/react-native-countries-app">
+          <ProjectThumbnail
+            palette={palette}
+            title="react-native-countries-app"
+          />
         </a>
       </Projects>
     </>
