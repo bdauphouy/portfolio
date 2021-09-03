@@ -17,11 +17,8 @@ const Homepage = ({ styles, palette, mobile }) => {
           data-gsap-text
           size={styles.titles.t2}
           color={styles.colors.text}>
-          Hello, I am
-          <Stroked
-            size={styles.titles.t2}
-            color={styles.colors.text}
-            style={{ marginLeft: '15px' }}>
+          Hello, I am&nbsp;
+          <Stroked size={styles.titles.t2} color={styles.colors.text}>
             Baptiste Dauphouy
           </Stroked>
           , a frontend developer.
