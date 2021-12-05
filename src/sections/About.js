@@ -8,7 +8,7 @@ import {
 } from '../components/Components'
 import useResolutionIsGreaterThan from '../hooks/useResolutionIsGreaterThan'
 
-const About = ({ styles, palette, mobile, tablet }) => {
+const About = ({ styles, palette, tablet }) => {
   const greaterThan450 = useResolutionIsGreaterThan(450)
 
   return (
@@ -26,8 +26,8 @@ const About = ({ styles, palette, mobile, tablet }) => {
           style={{ marginTop: '20px' }}
           data-about-text
           data-gsap-text>
-          My name is Baptiste Dauphouy, I am a french developer, 17 years old,
-          and I live near Rennes in France.
+          My name is Baptiste Dauphouy, I am a 17 years old french developer,
+          and I live in Paris.
         </Paragraph>
         <Paragraph
           color={styles.colors.text}
@@ -35,9 +35,8 @@ const About = ({ styles, palette, mobile, tablet }) => {
           style={{ marginTop: '20px' }}
           data-about-text
           data-gsap-text>
-          I have been a frontend developer for 2 years and today I would like to
-          put in application all the knowledges I acquired in these couple of
-          years.
+          I have been a frontend developer for 3 years and today I would like to
+          put in application all the knowledges I acquired in these last years.
         </Paragraph>
         <Paragraph
           color={styles.colors.text}
@@ -49,14 +48,14 @@ const About = ({ styles, palette, mobile, tablet }) => {
           contact me.
         </Paragraph>
         <Link
-          href="/cv.pdf"
+          href="/resume.pdf"
           download
           data-cursor
           size={styles.links.l1}
           color={palette.greens.g5}
           style={{ marginTop: '50px' }}
           data-about-link>
-          Download my CV
+          Download my resume
         </Link>
       </Column>
       <Column style={{ flex: 1, minWidth: !tablet && '350px' }}>

@@ -44,7 +44,7 @@ const Contact = ({ styles, palette, tablet, externalLinks }) => {
             }}
             data-gsap-text
             data-contact-text>
-            bdauphouy[at]gmail.com
+            bdauphouy[at]gmail[dot]com
           </Title>
           <Paragraph
             color={palette.grays.g1}
@@ -87,13 +87,13 @@ const Contact = ({ styles, palette, tablet, externalLinks }) => {
           </li>
           <li>
             <Link
-              href={externalLinks.discord}
+              href={externalLinks.linkedin}
               color={palette.greens.g5}
               size={styles.links.l1}
               data-gsap-text
               data-cursor
               data-contact-text>
-              discord
+              linkedin
             </Link>
           </li>
           <li>

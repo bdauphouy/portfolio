@@ -59,16 +59,18 @@ const DownloadCV = ({ styles, tablet }) => {
             fontWeight: 500,
             fontSize: styles.links.l2,
             fill: styles.colors.text,
+            letterSpacing: diameter > 43 ? '1.55px' : tablet ? '3.8px' : '5px',
           }}>
           <textPath href="#text-diameter">
             <tspan>
-              Download my CV - Download my CV -
-              {!tablet && diameter > 43 && ' Download my CV -'}
+              Download my Resume -
+              {!tablet && diameter > 43 && ' Download my Resume -'}
+              {/* {!tablet && diameter > 43 && ' Download my CV -'} */}
             </tspan>
           </textPath>
         </text>
       </SVG>
-      <a href="./cv.pdf" download style={{ display: 'inline-block' }}>
+      <a href="./resume.pdf" download style={{ display: 'inline-block' }}>
         <Arrow
           data-fixed-element
           data-cursor

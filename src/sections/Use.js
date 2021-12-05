@@ -3,7 +3,20 @@ import { Container, Title, Column } from '../components/Components'
 import useResolutionIsGreaterThan from '../hooks/useResolutionIsGreaterThan'
 
 const Use = ({ styles }) => {
-  const greaterThan = useResolutionIsGreaterThan(650)
+  const greaterThan = useResolutionIsGreaterThan(1365)
+
+  const tech = [
+    'HTML',
+    'SCSS',
+    'Tailwind',
+    'Javascript',
+    'React',
+    'React Native',
+    'Next',
+    'Vue',
+    'Three.js',
+    'Git',
+  ]
 
   return (
     <Container id="use" padding={`${styles.paddings.p4} ${styles.paddings.p1}`}>
@@ -17,62 +30,17 @@ const Use = ({ styles }) => {
           What I use
         </Title>
         <List greaterThan={greaterThan}>
-          <Item
-            data-use-text
-            data-gsap-text
-            color={styles.colors.text}
-            size={styles.paragraphs.p1}>
-            HTML
-          </Item>
-          <Item
-            data-use-text
-            data-gsap-text
-            color={styles.colors.text}
-            size={styles.paragraphs.p1}>
-            SCSS
-          </Item>
-          <Item
-            data-use-text
-            data-gsap-text
-            color={styles.colors.text}
-            size={styles.paragraphs.p1}>
-            Javascript
-          </Item>
-          <Item
-            data-use-text
-            data-gsap-text
-            color={styles.colors.text}
-            size={styles.paragraphs.p1}>
-            React
-          </Item>
-          <Item
-            data-use-text
-            data-gsap-text
-            color={styles.colors.text}
-            size={styles.paragraphs.p1}>
-            React Native
-          </Item>
-          <Item
-            data-use-text
-            data-gsap-text
-            color={styles.colors.text}
-            size={styles.paragraphs.p1}>
-            Vue
-          </Item>
-          <Item
-            data-use-text
-            data-gsap-text
-            color={styles.colors.text}
-            size={styles.paragraphs.p1}>
-            Three.js
-          </Item>
-          <Item
-            data-use-text
-            data-gsap-text
-            color={styles.colors.text}
-            size={styles.paragraphs.p1}>
-            Git
-          </Item>
+          {tech.map(item => {
+            return (
+              <Item
+                data-use-text
+                data-gsap-text
+                color={styles.colors.text}
+                size={styles.paragraphs.p1}>
+                {item}
+              </Item>
+            )
+          })}
         </List>
       </Column>
     </Container>

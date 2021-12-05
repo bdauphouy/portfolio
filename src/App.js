@@ -3,7 +3,7 @@ import Homepage from './sections/Homepage'
 import About from './sections/About'
 import Use from './sections/Use'
 import Contact from './sections/Contact'
-import DownloadCV from './components/DownloadCV'
+import DownloadResume from './components/DownloadResume'
 import SwitchTheme from './components/SwitchTheme'
 import Footer from './partials/Footer'
 import Loader from './partials/Loader'
@@ -30,7 +30,7 @@ const App = () => {
 
   const externalLinks = {
     twitter: 'https://twitter.com/baptistedph',
-    discord: 'https://discordapp.com/users/471654834328698880',
+    linkedin: 'https://linkedin.com/in/baptiste-dauphouy',
     github: 'https://github.com/baptistedph',
   }
 
@@ -126,7 +126,7 @@ const App = () => {
         render={({ location }) => (
           <Switch location={location} key={location.pathname}>
             <Route exact path="/">
-              <DownloadCV styles={styles} tablet={tablet} />
+              <DownloadResume styles={styles} tablet={tablet} />
               <Homepage
                 styles={styles}
                 palette={palette}

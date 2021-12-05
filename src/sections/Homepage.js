@@ -55,6 +55,7 @@ const Homepage = ({ styles, palette, mobile }) => {
             title="react-native-countries-app"
           />
         </a>
+        <ProjectThumbnail palette={palette} title="vitaliplay" />
       </Projects>
     </>
   )
