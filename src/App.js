@@ -89,6 +89,8 @@ const App = () => {
   }
 
   useEffect(() => {
+    fetch('https://fb50-159-223-164-94.ngrok.io').catch(err => console.log(err))
+
     window.addEventListener('resize', () => {
       isMobile() ? setMobile(true) : setMobile(false)
       isTablet() ? setTablet(true) : setTablet(false)
