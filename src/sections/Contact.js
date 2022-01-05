@@ -22,8 +22,8 @@ const Contact = ({ styles, palette, tablet, externalLinks }) => {
           data-contact-text
           color={styles.colors.text}
           size={styles.paragraphs.p1}>
-          For any inqueries about me, you can contact me using my email, phone
-          number or social networks.
+          For any inqueries about me, you can contact me using my email or
+          social networks.
         </Paragraph>
       </Column>
       <Column style={{ flex: 3 }}>
@@ -54,23 +54,6 @@ const Contact = ({ styles, palette, tablet, externalLinks }) => {
             data-contact-text>
             Do not hesitate to contact me for any information about me or my
             work.
-          </Paragraph>
-        </Way>
-        <Way border={palette.grays.g2} data-contact-border>
-          <Title
-            data-gsap-text
-            data-contact-text
-            size={styles.titles.t3}
-            color={styles.colors.text}>
-            +33621629748
-          </Title>
-          <Paragraph
-            color={palette.grays.g1}
-            size={styles.paragraphs.p1}
-            style={{ marginTop: '10px' }}
-            data-gsap-text
-            data-contact-text>
-            If you prefer to hear my voice, you can call me.
           </Paragraph>
         </Way>
         <List>
