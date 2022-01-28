@@ -44,7 +44,7 @@ const Contact = ({ styles, palette, tablet, externalLinks }) => {
             }}
             data-gsap-text
             data-contact-text>
-            bdauphouy[at]gmail[dot]com
+            contact[at]bdph[dot]me
           </Title>
           <Paragraph
             color={palette.grays.g1}

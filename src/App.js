@@ -89,7 +89,6 @@ const App = () => {
   }
 
   useEffect(() => {
-
     window.addEventListener('resize', () => {
       isMobile() ? setMobile(true) : setMobile(false)
       isTablet() ? setTablet(true) : setTablet(false)
