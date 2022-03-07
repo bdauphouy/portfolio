@@ -17,7 +17,7 @@ const Footer = ({ styles, palette }) => {
         style={{
           textAlign: 'center',
         }}>
-        © 2021 - Baptiste Dauphouy
+        © 2022 - Baptiste Dauphouy
       </Paragraph>
     </footer>
   )

@@ -26,7 +26,7 @@ const About = ({ styles, palette, tablet }) => {
           style={{ marginTop: '20px' }}
           data-about-text
           data-gsap-text>
-          My name is Baptiste Dauphouy, I am a 17 years old french developer,
+          My name is Baptiste Dauphouy, I am a 18 years old french developer,
           and I live in Paris.
         </Paragraph>
         <Paragraph
@@ -35,8 +35,9 @@ const About = ({ styles, palette, tablet }) => {
           style={{ marginTop: '20px' }}
           data-about-text
           data-gsap-text>
-          I have been a frontend developer for 3 years and today I would like to
-          put in application all the knowledges I acquired in these last years.
+          I have been a frontend developer for 3 years and I'm studying at HETIC
+          in Paris for a year. I'm currently looking for an internship in web
+          development.
         </Paragraph>
         <Paragraph
           color={styles.colors.text}
@@ -44,11 +45,21 @@ const About = ({ styles, palette, tablet }) => {
           style={{ marginTop: '20px' }}
           data-about-text
           data-gsap-text>
-          So, if you want to work with me, you will find below, the ways to
-          contact me.
+          I'm especially a React lover but I'm interesting in many other
+          technologies and domains like creative development, MERN stack and
+          networking.
+        </Paragraph>
+        <Paragraph
+          color={styles.colors.text}
+          size={styles.paragraphs.p1}
+          style={{ marginTop: '20px' }}
+          data-about-text
+          data-gsap-text>
+          So, if you are interested by my profile, you will find below, the
+          different ways to contact me.
         </Paragraph>
         <Link
-          href="/resume.pdf"
+          href="/bdph-resume.pdf"
           download
           data-cursor
           size={styles.links.l1}
@@ -115,32 +126,6 @@ const About = ({ styles, palette, tablet }) => {
               color={palette.grays.g1}
               size={styles.paragraphs.p1}>
               Redon, France
-            </Paragraph>
-          </Column>
-        </Step>
-        <Step>
-          <Paragraph
-            color={palette.grays.g1}
-            size={styles.paragraphs.p1}
-            style={{ whiteSpace: 'nowrap' }}
-            data-about-text
-            data-gsap-text>
-            2014-2018
-          </Paragraph>
-          <Column style={{ marginLeft: greaterThan450 ? 80 : 0 }}>
-            <Paragraph
-              data-about-text
-              data-gsap-text
-              color={styles.colors.text}
-              size={styles.paragraphs.p1}>
-              Collège Saint-Martin
-            </Paragraph>
-            <Paragraph
-              data-about-text
-              data-gsap-text
-              color={palette.grays.g1}
-              size={styles.paragraphs.p1}>
-              Pontchâteau, France
             </Paragraph>
           </Column>
         </Step>

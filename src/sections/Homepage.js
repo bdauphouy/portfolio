@@ -2,9 +2,12 @@ import styled from 'styled-components'
 import { Title, Container, Stroked } from '../components/Components'
 import ProjectThumbnail from '../components/ProjectThumbnail'
 import useGSAP from '../hooks/useGSAP'
+import useResolutionIsGreaterThan from '../hooks/useResolutionIsGreaterThan'
 
 const Homepage = ({ styles, palette, mobile }) => {
   useGSAP()
+
+  const fourK = useResolutionIsGreaterThan(3839)
 
   return (
     <>
@@ -29,33 +32,40 @@ const Homepage = ({ styles, palette, mobile }) => {
         style={{
           gridTemplateColumns: mobile
             ? 'repeat(auto-fill, minmax(300px, 1fr))'
+            : fourK
+            ? 'repeat(auto-fill, minmax(640px, 1fr))'
             : 'repeat(auto-fill, minmax(400px, 1fr))',
         }}>
-        <a href="https://fantashop.fr">
-          <ProjectThumbnail palette={palette} title="fantashop" />
-        </a>
-        <a href="https://github.com/baptistedph/institut-bien-etre-griottines">
-          <ProjectThumbnail palette={palette} title="institut" />
+        <ProjectThumbnail
+          palette={palette}
+          title="vitaliplay"
+          href="https://vitaliplay.eltha.fr">
+          En cours - Mi-Avril 2022
+        </ProjectThumbnail>
+        <a href="https://carcollective.io">
+          <ProjectThumbnail palette={palette} title="car-collective" />
         </a>
         <a href="https://benjamin-code.bdph.me">
           <ProjectThumbnail palette={palette} title="benjamin-code" />
         </a>
-        <a href="https://baptiste.tech/vue-countries-app">
-          <ProjectThumbnail palette={palette} title="vue-countries-app" />
+        <a href="https://github.com/baptistedph/hetic-games">
+          <ProjectThumbnail palette={palette} title="hetic-games" />
         </a>
-        <a href="https://baptiste.tech/azura">
-          <ProjectThumbnail palette={palette} title="azura" />
+        <a href="https://mastermind.bdph.me">
+          <ProjectThumbnail palette={palette} title="mastermind" />
         </a>
-        <a href="https://baptiste.tech/flexomatic">
+        <a href="https://bt-flexomatic.netlify.app/">
           <ProjectThumbnail palette={palette} title="flexomatic" />
         </a>
-        <a href="https://github.com/baptistedph/react-native-countries-app">
+        <a href="https://bt-vue-countries-app.netlify.app/">
+          <ProjectThumbnail palette={palette} title="vue-countries-app" />
+        </a>
+        <a href="https://github.com/baptistedph/subscribe-popup-generator">
           <ProjectThumbnail
             palette={palette}
-            title="react-native-countries-app"
+            title="subscribe-popup-generator"
           />
         </a>
-        <ProjectThumbnail palette={palette} title="vitaliplay" />
       </Projects>
     </>
   )

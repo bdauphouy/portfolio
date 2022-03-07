@@ -18,7 +18,9 @@ import {
 import Cursor from './components/Cursor'
 
 const App = () => {
-  const loadingPage = true
+  const lsLoading = window.localStorage.getItem('bdph-loader')
+
+  const loadingPage = !lsLoading
 
   const [mobile, setMobile] = useState(false)
   const [tablet, setTablet] = useState(true)
@@ -121,7 +123,7 @@ const App = () => {
       {loader && <Loader styles={styles} load={load} animate={animate} />}
       <SwitchTheme styles={styles} theme={theme} setTheme={setTheme} />
       {!tablet && <Cursor theme={theme} styles={styles} tablet={tablet} />}
-      <Navbar styles={styles} />
+      <Navbar styles={styles} theme={theme} />
       <Route
         render={({ location }) => (
           <Switch location={location} key={location.pathname}>

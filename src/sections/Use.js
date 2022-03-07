@@ -7,15 +7,24 @@ const Use = ({ styles }) => {
 
   const tech = [
     'HTML',
+    'CSS',
     'SCSS',
     'Tailwind',
     'Javascript',
     'React',
-    'React Native',
     'Next',
     'Vue',
+    'Svelte',
+    'Node',
+    'Express',
+    'MongoDB',
+    'Strapi',
+    'Greensock',
+    'Framer Motion',
     'Three.js',
+    'Figma',
     'Git',
+    'Python',
   ]
 
   return (
@@ -33,6 +42,7 @@ const Use = ({ styles }) => {
           {tech.map(item => {
             return (
               <Item
+                key={item}
                 data-use-text
                 data-gsap-text
                 color={styles.colors.text}
@@ -52,7 +62,7 @@ const List = styled.ul`
   margin-top: 50px;
   list-style: none;
   flex-wrap: wrap;
-  justify-content: ${props => (props.greaterThan ? 'space-between' : 'center')};
+  justify-content: center;
   width: 100%;
   grid-gap: 50px;
 `

@@ -66,7 +66,7 @@ const useGSAP = animate => {
         scrollTrigger: {
           trigger: '#about',
           markers,
-          start: 'top 75%',
+          start: 'top 85%',
         },
       })
       aboutTL.from('[data-about-text]', textAppear)
@@ -85,7 +85,7 @@ const useGSAP = animate => {
         scrollTrigger: {
           trigger: '#use',
           markers,
-          start: 'top center',
+          start: 'top 80%',
         },
       })
       useTL.from('[data-use-text]', textAppear)
@@ -94,7 +94,7 @@ const useGSAP = animate => {
         scrollTrigger: {
           trigger: '#contact',
           markers,
-          start: 'top center',
+          start: 'top 80%',
         },
       })
       contactTL.from('[data-contact-border]', {

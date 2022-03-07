@@ -1,6 +1,11 @@
+import { useEffect } from 'react'
 import styled from 'styled-components'
 
 const Loader = ({ styles, load, animate }) => {
+  useEffect(() => {
+    return () => window.localStorage.setItem('bdph-loader', 'true')
+  }, [])
+
   return (
     <LoaderContainer
       padding={`${styles.paddings.p4} ${styles.paddings.p1}`}

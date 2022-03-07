@@ -70,7 +70,7 @@ const DownloadCV = ({ styles, tablet }) => {
           </textPath>
         </text>
       </SVG>
-      <a href="./resume.pdf" download style={{ display: 'inline-block' }}>
+      <a href="/bdph-resume.pdf" download style={{ display: 'inline-block' }}>
         <Arrow
           data-fixed-element
           data-cursor
@@ -88,7 +88,7 @@ const Circle = styled.div`
   position: ${props => (props.tablet ? 'fixed' : 'absolute')};
   z-index: 97;
   right: ${props => (props.greaterThan ? '10%' : '5%')};
-  top: ${props => (props.greaterThan ? '30%' : '5%')};
+  top: ${props => (props.greaterThan ? '280px' : '50px')};
   height: 170px;
 
   @media (max-width: 1024px) {
