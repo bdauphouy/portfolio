@@ -42,7 +42,7 @@ const Homepage = ({ styles, palette, mobile }) => {
           href="https://vitaliplay.eltha.fr">
           En cours - Mi-Avril 2022
         </ProjectThumbnail>
-        <a href="https://carcollective.io">
+        <a href="https://www.carcollective.io">
           <ProjectThumbnail palette={palette} title="car-collective" />
         </a>
         <a href="https://benjamin-code.bdph.me">
