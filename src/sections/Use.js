@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 import { Container, Title, Column } from '../components/Components'
 import useResolutionIsGreaterThan from '../hooks/useResolutionIsGreaterThan'
+import { useEffect } from 'react'
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger'
 
 const Use = ({ styles }) => {
   const greaterThan = useResolutionIsGreaterThan(1365)
@@ -27,6 +30,22 @@ const Use = ({ styles }) => {
     'Python',
   ]
 
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger)
+    gsap.from('.item', {
+      scrollTrigger: {
+        trigger: '#use',
+        start: 'center bottom',
+        end: '+=500',
+        scrub: true,
+      },
+      opacity: 0,
+      y: '100%',
+      ease: 'power4.out',
+      stagger: 0.1,
+    })
+  }, [])
+
   return (
     <Container id="use" padding={`${styles.paddings.p4} ${styles.paddings.p1}`}>
       <Column style={{ width: '100%', alignItems: 'center' }}>
@@ -38,20 +57,21 @@ const Use = ({ styles }) => {
           color={styles.colors.text}>
           What I use
         </Title>
-        <List greaterThan={greaterThan}>
-          {tech.map(item => {
-            return (
-              <Item
-                key={item}
-                data-use-text
-                data-gsap-text
-                color={styles.colors.text}
-                size={styles.paragraphs.p1}>
-                {item}
-              </Item>
-            )
-          })}
-        </List>
+        <div className="trigger">
+          <List greaterThan={greaterThan}>
+            {tech.map(item => {
+              return (
+                <Item
+                  key={item}
+                  className="item"
+                  color={styles.colors.text}
+                  size={styles.paragraphs.p1}>
+                  {item}
+                </Item>
+              )
+            })}
+          </List>
+        </div>
       </Column>
     </Container>
   )

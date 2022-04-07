@@ -120,15 +120,16 @@ const App = () => {
 
   return (
     <Router basename="/">
-      {loader && <Loader styles={styles} load={load} animate={animate} />}
       <SwitchTheme styles={styles} theme={theme} setTheme={setTheme} />
+      {loader && <Loader styles={styles} load={load} animate={animate} />}
       {!tablet && <Cursor theme={theme} styles={styles} tablet={tablet} />}
+      <DownloadResume styles={styles} tablet={tablet} />
+
       <Navbar styles={styles} theme={theme} />
       <Route
         render={({ location }) => (
           <Switch location={location} key={location.pathname}>
             <Route exact path="/">
-              <DownloadResume styles={styles} tablet={tablet} />
               <Homepage
                 styles={styles}
                 palette={palette}
