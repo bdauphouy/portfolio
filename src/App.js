@@ -49,10 +49,10 @@ const App = () => {
       g2: '#E2E8F0',
     },
     blacks: {
-      b1: '#000000',
+      b1: '#04041c',
     },
     whites: {
-      w1: '#ffffff',
+      w1: '#eaeaea',
     },
   }
 
