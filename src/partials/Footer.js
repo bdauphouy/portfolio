@@ -8,7 +8,8 @@ const Footer = ({ styles, palette }) => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-      }}>
+      }}
+    >
       <Paragraph
         data-gsap-text
         data-contact-text
@@ -16,8 +17,9 @@ const Footer = ({ styles, palette }) => {
         size={styles.paragraphs.p1}
         style={{
           textAlign: 'center',
-        }}>
-        © 2022 - Baptiste Dauphouy
+        }}
+      >
+        © {new Date().getFullYear()} - Baptiste Dauphouy
       </Paragraph>
     </footer>
   )

@@ -1,33 +1,20 @@
-import styled from 'styled-components'
-import { Container, Title, Column } from '../components/Components'
-import useResolutionIsGreaterThan from '../hooks/useResolutionIsGreaterThan'
-import { useEffect } from 'react'
 import gsap from 'gsap'
 import ScrollTrigger from 'gsap/ScrollTrigger'
+import { useEffect } from 'react'
+import styled from 'styled-components'
+import { Column, Container, Title } from '../components/Components'
+import useResolutionIsGreaterThan from '../hooks/useResolutionIsGreaterThan'
 
 const Use = ({ styles }) => {
   const greaterThan = useResolutionIsGreaterThan(1365)
 
   const tech = [
-    'HTML',
-    'CSS',
-    'SCSS',
-    'Tailwind',
-    'Javascript',
+    'Typescript',
     'React',
     'Next',
-    'Vue',
     'Svelte',
-    'Node',
-    'Express',
-    'MongoDB',
-    'Strapi',
-    'Greensock',
-    'Framer Motion',
-    'Three.js',
-    'Figma',
-    'Git',
-    'Python',
+    'SvelteKit',
+    'Tailwind',
   ]
 
   useEffect(() => {
@@ -36,7 +23,7 @@ const Use = ({ styles }) => {
       scrollTrigger: {
         trigger: '#use',
         start: 'center bottom',
-        end: '+=500',
+        end: '+=800',
         scrub: true,
       },
       opacity: 0,
@@ -54,7 +41,8 @@ const Use = ({ styles }) => {
           data-gsap-text
           size={styles.titles.t3}
           stroked
-          color={styles.colors.text}>
+          color={styles.colors.text}
+        >
           What I use
         </Title>
         <div className="trigger">
@@ -65,7 +53,8 @@ const Use = ({ styles }) => {
                   key={item}
                   className="item"
                   color={styles.colors.text}
-                  size={styles.paragraphs.p1}>
+                  size={styles.paragraphs.p1}
+                >
                   {item}
                 </Item>
               )

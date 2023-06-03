@@ -10,7 +10,7 @@ const useAnimation = (diameter, setDiameter) => {
       setOutInterval(null)
       setOverInterval(
         setInterval(() => {
-          if (diameter >= 43) {
+          if (diameter >= 39) {
             setDiameter(diameter--)
           } else clearInterval(overInterval)
         }),
@@ -21,7 +21,7 @@ const useAnimation = (diameter, setDiameter) => {
       setOverInterval(null)
       setOutInterval(
         setInterval(() => {
-          if (diameter <= 64) {
+          if (diameter <= 57) {
             setDiameter(diameter++)
           } else clearInterval(outInterval)
         }),

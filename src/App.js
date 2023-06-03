@@ -1,21 +1,21 @@
-import Navbar from './partials/Navbar'
-import Homepage from './sections/Homepage'
-import About from './sections/About'
-import Use from './sections/Use'
-import Contact from './sections/Contact'
-import DownloadResume from './components/DownloadResume'
-import SwitchTheme from './components/SwitchTheme'
-import Footer from './partials/Footer'
-import Loader from './partials/Loader'
-import useLocalStorage from './hooks/useLocalStorage'
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
   Redirect,
+  Route,
+  Switch,
 } from 'react-router-dom'
 import Cursor from './components/Cursor'
+import DownloadResume from './components/DownloadResume'
+import SwitchTheme from './components/SwitchTheme'
+import useLocalStorage from './hooks/useLocalStorage'
+import Footer from './partials/Footer'
+import Loader from './partials/Loader'
+import Navbar from './partials/Navbar'
+import About from './sections/About'
+import Contact from './sections/Contact'
+import Homepage from './sections/Homepage'
+import Use from './sections/Use'
 
 const App = () => {
   const lsLoading = window.localStorage.getItem('bdph-loader')
@@ -31,9 +31,9 @@ const App = () => {
   const [theme, setTheme] = useLocalStorage('bdph-portfolio-theme', 'dark')
 
   const externalLinks = {
-    twitter: 'https://twitter.com/baptistedph',
+    twitter: 'https://twitter.com/bdauphouy',
     linkedin: 'https://linkedin.com/in/baptiste-dauphouy',
-    github: 'https://github.com/baptistedph',
+    github: 'https://github.com/bdauphouy',
   }
 
   const palette = {
@@ -123,7 +123,11 @@ const App = () => {
       <SwitchTheme styles={styles} theme={theme} setTheme={setTheme} />
       {loader && <Loader styles={styles} load={load} animate={animate} />}
       {!tablet && <Cursor theme={theme} styles={styles} tablet={tablet} />}
-      <DownloadResume styles={styles} tablet={tablet} />
+      <DownloadResume
+        styles={styles}
+        tablet={tablet}
+        externalLinks={externalLinks}
+      />
 
       <Navbar styles={styles} theme={theme} />
       <Route
@@ -142,6 +146,7 @@ const App = () => {
                 mobile={mobile}
                 tablet={tablet}
                 appear={appear}
+                externalLinks={externalLinks}
               />
               <Use styles={styles} tablet={tablet} />
               <Contact

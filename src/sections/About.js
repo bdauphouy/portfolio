@@ -1,14 +1,14 @@
 import styled from 'styled-components'
 import {
-  Paragraph,
-  Container,
   Column,
+  Container,
   Link,
+  Paragraph,
   Title,
 } from '../components/Components'
 import useResolutionIsGreaterThan from '../hooks/useResolutionIsGreaterThan'
 
-const About = ({ styles, palette, tablet }) => {
+const About = ({ styles, palette, tablet, externalLinks }) => {
   const greaterThan450 = useResolutionIsGreaterThan(450)
 
   return (
@@ -18,15 +18,17 @@ const About = ({ styles, palette, tablet }) => {
       style={{
         gridGap: !tablet ? '150px' : '80px',
         flexDirection: tablet && 'column',
-      }}>
+      }}
+    >
       <Column style={{ flex: 1.5 }}>
         <Paragraph
           color={styles.colors.text}
           size={styles.paragraphs.p1}
           style={{ marginTop: '20px' }}
           data-about-text
-          data-gsap-text>
-          My name is Baptiste Dauphouy, I am a 18 years old french developer,
+          data-gsap-text
+        >
+          My name is Baptiste Dauphouy, I am a 19 years old french developer,
           and I live in Paris.
         </Paragraph>
         <Paragraph
@@ -34,39 +36,42 @@ const About = ({ styles, palette, tablet }) => {
           size={styles.paragraphs.p1}
           style={{ marginTop: '20px' }}
           data-about-text
-          data-gsap-text>
-          I have been a frontend developer for 3 years and I'm studying at HETIC
-          in Paris for a year. I'm currently looking for an internship in web
-          development.
+          data-gsap-text
+        >
+          I have been a frontend developer for almost 5 years and I'm studying
+          at HETIC for my second year. I'm currently in internship in Radio
+          France since August 2022.
         </Paragraph>
         <Paragraph
           color={styles.colors.text}
           size={styles.paragraphs.p1}
           style={{ marginTop: '20px' }}
           data-about-text
-          data-gsap-text>
-          I'm especially a React lover but I'm interesting in many other
-          technologies and domains like creative development, MERN stack and
-          networking.
+          data-gsap-text
+        >
+          I mainly work with Svelte and TypeScript, but I also use React in some
+          projects.
         </Paragraph>
         <Paragraph
           color={styles.colors.text}
           size={styles.paragraphs.p1}
           style={{ marginTop: '20px' }}
           data-about-text
-          data-gsap-text>
-          So, if you are interested by my profile, you will find below, the
-          different ways to contact me.
+          data-gsap-text
+        >
+          I'm available for short freelance missions (up to 3 months), so don't
+          hesitate to contact me.
         </Paragraph>
         <Link
-          href="/bdph-resume.pdf"
-          download
+          href={externalLinks.linkedin}
           data-cursor
           size={styles.links.l1}
           color={palette.greens.g5}
           style={{ marginTop: '50px' }}
-          data-about-link>
-          Download my resume
+          data-about-link
+          target="_blank"
+        >
+          Jump to my profile
         </Link>
       </Column>
       <Column style={{ flex: 1, minWidth: !tablet && '350px' }}>
@@ -74,7 +79,8 @@ const About = ({ styles, palette, tablet }) => {
           data-about-text
           size={styles.titles.t3}
           stroked
-          color={styles.colors.text}>
+          color={styles.colors.text}
+        >
           Curriculum
         </Title>
         <Step style={{ marginTop: '50px' }}>
@@ -83,7 +89,37 @@ const About = ({ styles, palette, tablet }) => {
             size={styles.paragraphs.p1}
             style={{ whiteSpace: 'nowrap' }}
             data-about-text
-            data-gsap-text>
+            data-gsap-text
+          >
+            2022-2023
+          </Paragraph>
+          <Column style={{ marginLeft: greaterThan450 ? 80 : 0 }}>
+            <Paragraph
+              data-about-text
+              data-gsap-text
+              color={styles.colors.text}
+              size={styles.paragraphs.p1}
+            >
+              Radio France
+            </Paragraph>
+            <Paragraph
+              data-about-text
+              data-gsap-text
+              color={palette.grays.g1}
+              size={styles.paragraphs.p1}
+            >
+              Paris, France
+            </Paragraph>
+          </Column>
+        </Step>
+        <Step>
+          <Paragraph
+            color={palette.grays.g1}
+            size={styles.paragraphs.p1}
+            style={{ whiteSpace: 'nowrap' }}
+            data-about-text
+            data-gsap-text
+          >
             2021-2024
           </Paragraph>
           <Column style={{ marginLeft: greaterThan450 ? 80 : 0 }}>
@@ -91,14 +127,16 @@ const About = ({ styles, palette, tablet }) => {
               data-about-text
               data-gsap-text
               color={styles.colors.text}
-              size={styles.paragraphs.p1}>
+              size={styles.paragraphs.p1}
+            >
               HETIC
             </Paragraph>
             <Paragraph
               data-about-text
               data-gsap-text
               color={palette.grays.g1}
-              size={styles.paragraphs.p1}>
+              size={styles.paragraphs.p1}
+            >
               Montreuil, France
             </Paragraph>
           </Column>
@@ -109,7 +147,8 @@ const About = ({ styles, palette, tablet }) => {
             size={styles.paragraphs.p1}
             style={{ whiteSpace: 'nowrap' }}
             data-about-text
-            data-gsap-text>
+            data-gsap-text
+          >
             2018-2021
           </Paragraph>
           <Column style={{ marginLeft: greaterThan450 ? 80 : 0 }}>
@@ -117,14 +156,16 @@ const About = ({ styles, palette, tablet }) => {
               data-about-text
               data-gsap-text
               color={styles.colors.text}
-              size={styles.paragraphs.p1}>
+              size={styles.paragraphs.p1}
+            >
               Lycée Saint-Sauveur
             </Paragraph>
             <Paragraph
               data-about-text
               data-gsap-text
               color={palette.grays.g1}
-              size={styles.paragraphs.p1}>
+              size={styles.paragraphs.p1}
+            >
               Redon, France
             </Paragraph>
           </Column>
@@ -135,12 +176,15 @@ const About = ({ styles, palette, tablet }) => {
 }
 
 const Step = styled.div`
-  display: flex;
-  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  margin-top: 40px;
   width: 100%;
+  max-width: 500px;
 
   @media (max-width: 450px) {
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 1rem;
   }
 `
 

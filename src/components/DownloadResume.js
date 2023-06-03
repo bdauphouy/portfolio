@@ -1,17 +1,17 @@
+import { useEffect, useRef, useState } from 'react'
 import styled from 'styled-components'
-import { useState, useEffect, useRef } from 'react'
 import useAnimation from '../hooks/useAnimation'
 import useResolutionIsGreaterThan from '../hooks/useResolutionIsGreaterThan'
 
-const DownloadCV = ({ styles, tablet }) => {
+const DownloadCV = ({ styles, tablet, externalLinks }) => {
   const greaterThan = useResolutionIsGreaterThan(1500)
 
-  let [diameter, setDiameter] = useState(tablet ? 34 : 64)
+  let [diameter, setDiameter] = useState(tablet ? 39 : 57)
 
   const circle = useRef()
 
   useEffect(() => {
-    setDiameter(tablet ? 34 : 64)
+    setDiameter(tablet ? 39 : 57)
 
     const moveCircle = e => {
       const { clientX, clientY } = e
@@ -43,11 +43,13 @@ const DownloadCV = ({ styles, tablet }) => {
       padding={`${parseFloat(styles.paddings.p3) + 80 + 'px'} ${
         styles.paddings.p2
       }`}
-      greaterThan={greaterThan}>
+      greaterThan={greaterThan}
+    >
       <SVG
         width={tablet ? 90 : 170}
         height={tablet ? 90 : 170}
-        data-fixed-element>
+        data-fixed-element
+      >
         <path
           id="text-diameter"
           d={`M ${diameter},0 A ${diameter},${diameter} 0 0 1 -${diameter},0 A ${diameter},${diameter} 0 0 1 ${diameter},0`}
@@ -59,18 +61,24 @@ const DownloadCV = ({ styles, tablet }) => {
             fontWeight: 500,
             fontSize: styles.links.l2,
             fill: styles.colors.text,
-            letterSpacing: diameter > 43 ? '1.55px' : tablet ? '3.8px' : '5px',
-          }}>
+            letterSpacing: diameter > 43 ? '1.55px' : tablet ? '6.3px' : '5px',
+          }}
+        >
           <textPath href="#text-diameter">
             <tspan>
-              Download my Resume -
-              {!tablet && diameter > 43 && ' Download my Resume -'}
+              Jump to my resume -
+              {!tablet && diameter > 39 && ' Jump to my resume -'}
               {/* {!tablet && diameter > 43 && ' Download my CV -'} */}
             </tspan>
           </textPath>
         </text>
       </SVG>
-      <a href="/bdph-resume.pdf" download style={{ display: 'inline-block' }}>
+      <a
+        href={externalLinks.linkedin}
+        target="_blank"
+        style={{ display: 'inline-block' }}
+        rel="noreferrer"
+      >
         <Arrow
           data-fixed-element
           data-cursor
@@ -88,7 +96,7 @@ const Circle = styled.div`
   position: ${props => (props.tablet ? 'fixed' : 'absolute')};
   z-index: 97;
   right: ${props => (props.greaterThan ? '10%' : '5%')};
-  top: ${props => (props.greaterThan ? '280px' : '50px')};
+  top: ${props => (props.greaterThan ? '320px' : '50px')};
   height: 170px;
 
   @media (max-width: 1024px) {
@@ -104,6 +112,7 @@ const Circle = styled.div`
 
 const SVG = styled.svg`
   animation: rotate 15s linear infinite;
+
   @keyframes rotate {
     from {
       transform: rotate(0);

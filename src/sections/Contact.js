@@ -1,10 +1,10 @@
 import styled from 'styled-components'
 import {
-  Paragraph,
-  Container,
   Column,
-  Title,
+  Container,
   Link,
+  Paragraph,
+  Title,
 } from '../components/Components'
 
 const Contact = ({ styles, palette, tablet, externalLinks }) => {
@@ -15,13 +15,15 @@ const Contact = ({ styles, palette, tablet, externalLinks }) => {
       style={{
         gridGap: !tablet ? '150px' : '80px',
         flexDirection: tablet && 'column',
-      }}>
+      }}
+    >
       <Column style={{ flex: 1 }}>
         <Paragraph
           data-gsap-text
           data-contact-text
           color={styles.colors.text}
-          size={styles.paragraphs.p1}>
+          size={styles.paragraphs.p1}
+        >
           For any inqueries about me, you can contact me using my email or
           social networks.
         </Paragraph>
@@ -32,7 +34,8 @@ const Contact = ({ styles, palette, tablet, externalLinks }) => {
           data-contact-text
           size={styles.titles.t2}
           stroked
-          color={styles.colors.text}>
+          color={styles.colors.text}
+        >
           Contact me
         </Title>
         <Way border={palette.grays.g2} data-contact-border>
@@ -43,15 +46,17 @@ const Contact = ({ styles, palette, tablet, externalLinks }) => {
               wordBreak: 'break-all',
             }}
             data-gsap-text
-            data-contact-text>
-            contact@bdph.me
+            data-contact-text
+          >
+            mail@bdau.fr
           </Title>
           <Paragraph
             color={palette.grays.g1}
             size={styles.paragraphs.p1}
             style={{ marginTop: '10px' }}
             data-gsap-text
-            data-contact-text>
+            data-contact-text
+          >
             Do not hesitate to contact me for any information about me or my
             work.
           </Paragraph>
@@ -64,7 +69,9 @@ const Contact = ({ styles, palette, tablet, externalLinks }) => {
               size={styles.links.l1}
               data-gsap-text
               data-cursor
-              data-contact-text>
+              data-contact-text
+              target="_blank"
+            >
               twitter
             </Link>
           </li>
@@ -75,7 +82,9 @@ const Contact = ({ styles, palette, tablet, externalLinks }) => {
               size={styles.links.l1}
               data-gsap-text
               data-cursor
-              data-contact-text>
+              data-contact-text
+              target="_blank"
+            >
               linkedin
             </Link>
           </li>
@@ -86,7 +95,9 @@ const Contact = ({ styles, palette, tablet, externalLinks }) => {
               size={styles.links.l1}
               data-gsap-text
               data-cursor
-              data-contact-text>
+              data-contact-text
+              target="_blank"
+            >
               github
             </Link>
           </li>
